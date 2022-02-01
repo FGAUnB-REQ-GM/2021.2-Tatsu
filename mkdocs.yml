@@ -1,3 +1,19 @@
 site_name: Tatsu 
+
+repo_url: https://github.com/FGAUnB-REQ-GM/2021.2-Tatsu
+edit_uri: ""
+
+
 theme: 
   name: material
+  features: navigation.tabs
+
+
+extra_css:
+  - Assets/Stylesheets/extra.css
+
+nav:
+  - Home: "index.md"
+
+markdown_extensions:
+  - attr_list
