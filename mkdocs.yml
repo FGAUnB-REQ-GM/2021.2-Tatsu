@@ -9,8 +9,7 @@ theme:
   features: navigation.tabs
   logo: Assets/Images/Logo.svg
   favicon: Assets/Images/LogoSemFundo.svg
-  palette:
-    primary: "#14142c"
+
 
 
 
