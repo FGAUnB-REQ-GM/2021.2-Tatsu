@@ -1,17 +1,53 @@
-# Welcome to MkDocs
+# Tatsu Documentação
+Documentação do projeto Tatsu, desenvolvido pelos membros do Grupo Tatsu da disciplina **Requisitos de Software**.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Resultados
+Teste
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Time
+<div class="container">
+    <div class="row">
+        <div class="col-sm container-img">
+            <img src="https://github.com/jpaulohe4rt.png" alt="Joao Paulo Lima" class="img-thumbnail image">
+            <div class="middle">
+                <div class="text">
+                    João Paulo Lima 
+                </div>
+            </div>
+        </div>
+        <div class="col-sm container-img">
+            <img src="https://github.com/ltakehana.png" alt="Gabriel Freitas" class="img-thumbnail image">
+            <div class="middle">
+                <div class="text">
+                    Leonardo Takehana
+                </div>
+            </div>
+        </div>
+        <div class="col-sm container-img">
+            <img src="https://github.com/Neitan2001.png" alt="Natan Tavares" class="img-thumbnail image">
+            <div class="middle">
+                <div class="text">
+                    Natan Santana
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm container-img">
+            <img src="https://github.com/gabrielfreitass1.png" alt="Gabriel Freitas" class="img-thumbnail image">
+            <div class="middle">
+                <div class="text">
+                    Gabriel Freitas
+                </div>
+            </div>
+        </div>
+        <div class="col-sm container-img">
+            <img src="https://github.com/LuizGustavoFR.png" alt="João Victor Batista" class="img-thumbnail image">
+            <div class="middle">
+                <div class="text">
+                    Luiz Gustavo 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
