@@ -7,8 +7,8 @@ width: 50%;
     display: flex;
 }
 
-.md-logo img{
-    height: 20vh;
+.md-header__button.md-logo :-webkit-any(img,svg){
+    height: 15vh;
 }
 
 .image {
@@ -19,6 +19,10 @@ height: auto;
 transition: .5s ease;
 backface-visibility: hidden;
 border-radius: 50%;
+}
+
+.md-header__title{
+    opacity: 0;
 }
 
 .middle {
