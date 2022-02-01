@@ -28,24 +28,27 @@
 
 ## 2 Abordagem de Desenvolvimento de Software
 
-Para a metodologia foi escolhido um modelo híbrido com principais ágeis que seja adaptável a nossa realidade para otimizar os processos de desenvolvimento, para isso se utilizou alguns elementos do Scrum, como as sprints que serão organizadas com duração de 2 semanas, com sprints reviews e sprint plannings definidos e alguns cargos como P.O e Scrum Master, além de uma reunião semanal de acompanhamento, isso irá facilitar o controle dos entregáveis e garantir o andamento do projeto, para otimizar o aprendizado e as revisões será utilizado o pair programming do XP, de maneira que a cada sprint o pareamento dos membros sejam permutados de maneira a fazer com que todos interajam entre sí, melhorando o relacionamento dos desenvolvedores no projeto, por fim esses modelos serão gerenciados com base no ciclo de vida do modelo Unificado (RUP), alinhando as etapas desse processo aos entregáveis da disciplina garantindo que todo o processo seja cumprido dentro dos prazos
+Para a metodologia foi escolhido um modelo híbrido com principais ágeis que seja adaptável a nossa realidade para otimizar os processos de desenvolvimento, para isso se utilizou alguns elementos do Scrum, como as sprints que serão organizadas com duração de 2 semanas, com sprints reviews e sprint plannings definidos e alguns cargos como P.O e Scrum Master, além de uma reunião semanal de acompanhamento, isso irá facilitar o controle dos entregáveis e garantir o andamento do projeto, para otimizar o aprendizado e as revisões será utilizado o pair programming do XP, de maneira que a cada sprint o pareamento dos membros sejam permutados de maneira a fazer com que todos interajam entre sí, melhorando o relacionamento dos desenvolvedores no projeto.
 
 ## 3 Abordagem de Engenharia de Requisitos
+
+Para o gerenciamento teremos como base o no ciclo de vida do modelo Unificado (RUP), alinhando as etapas desse processo aos entregáveis da disciplina garantindo que todo o processo seja cumprido dentro dos prazos. E se baseando nas 4 fases sequencias, nomeadas em: inception, elaboration, construction e transition.
 
 ### 3.1 Elicitação de Requisitos
 |Atividade|Método|Ferramenta|
 |:-------:|:----:|:--------:|
-| Reconhecimento dos Requisitos Necessarios|||
+| Analizar o Problema| Brainstorming | Plataforma "Miro"|
+| Entender as Necesidades dos Stakeholders | Brainstorming | Plataforma "Miro"|
 
 ### 3.2	Análise de Requisitos
 |Atividade|Método|Ferramenta|
 |:-------:|:----:|:--------:|
-||||
+|Definir o Sistema| Storyboarding | Plataforma "Miro" |
 
 ### 3.3	Documentação de Requisitos
 |Atividade|Método|Ferramenta|
 |:-------:|:----:|:--------:|
-||||
+|Definição do backlog | Histórias de Usuário, Épicos e Features| Planilha do Google Sheets |
 
 ### 3.4	Verificação e Validação de Requisitos
 |Atividade|Método|Ferramenta|
