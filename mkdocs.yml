@@ -19,6 +19,7 @@ extra_css:
 
 nav:
   - Home: "index.md"
+  - Visão: "visao.md"
 
 markdown_extensions:
   - attr_list
