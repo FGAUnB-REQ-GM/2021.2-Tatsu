@@ -5,8 +5,7 @@ Documentação do projeto Tatsu, desenvolvido pelos membros do Grupo Tatsu da di
 Teste
 
 ## Time
-<div class="container">
-    <div class="row">
+<div class="container"> 
         <div class="col-sm container-img">
             <img src="https://github.com/jpaulohe4rt.png" alt="Joao Paulo Lima" class="img-thumbnail image">
             <div class="middle">
@@ -31,8 +30,6 @@ Teste
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
         <div class="col-sm container-img">
             <img src="https://github.com/gabrielfreitass1.png" alt="Gabriel Freitas" class="img-thumbnail image">
             <div class="middle">
@@ -49,5 +46,4 @@ Teste
                 </div>
             </div>
         </div>
-    </div>
 </div>
