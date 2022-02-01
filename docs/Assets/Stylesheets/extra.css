@@ -7,6 +7,10 @@ width: 50%;
     display: flex;
 }
 
+.md-logo img{
+    height: 20vh;
+}
+
 .image {
 opacity: 1;
 display: block;
