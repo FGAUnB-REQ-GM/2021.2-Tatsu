@@ -7,10 +7,10 @@ edit_uri: ""
 theme: 
   name: material
   features: navigation.tabs
-  logo: Assets/Images/Logo.png
-  favicon: Assets/Images/LogoSemFundo.png
+  logo: Assets/Images/Logo.svg
+  favicon: Assets/Images/LogoSemFundo.svg
   palette:
-  primary: "#14142c"
+    primary: "#14142c"
 
 
 
