@@ -73,3 +73,7 @@ background-size: cover !important;
 .mask {
 background-color: transparent !important; 
 }
+
+:root {
+    --md-primary-fg-color:        #14142c;
+  }
