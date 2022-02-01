@@ -17,6 +17,10 @@ backface-visibility: hidden;
 border-radius: 50%;
 }
 
+.md-header__title{
+    opacity: 0;
+}
+
 .middle {
 transition: .5s ease;
 opacity: 0;
