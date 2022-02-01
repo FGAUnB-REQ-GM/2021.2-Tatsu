@@ -3,7 +3,7 @@
 ## Histórico de Versão
 |    Data    | Versão |                Descrição                |                     Autor                     |
 | :--------: | :----: | :-------------------------------------: | :-------------------------------------------: |
-| 01/02/2022 |  0.1   | Criação do Documento de Visão do Produto e Projeto | [Natan Santana](https://github.com/Neitan2001), [Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR) |
+| 01/02/2022 |  1.0   | Criação do Documento de Visão do Produto e Projeto | [Natan Santana](https://github.com/Neitan2001), [Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR) |
 
 ## 1 Visão Geral do Produto
 
@@ -35,9 +35,7 @@ A abordagem de Engenharia de Requisitos seguirá o padrão proposto pelo process
 
 É possível observar o fluxo da abordagem de Engenharia de Requisitos pelo fluxograma abaixo:
 
-<img src="./docs/Assets/Images/wf_req.gif" width="900px"/>
-
-Para o gerenciamento teremos como base o no ciclo de vida do modelo Unificado (RUP), alinhando as etapas desse processo aos entregáveis da disciplina garantindo que todo o processo seja cumprido dentro dos prazos. E se baseando nas 4 fases sequencias, nomeadas em: inception, elaboration, construction e transition.
+<img src="../Assets/Images/wf_req.gif" width="900px"/>
 
 ### 3.1 Elicitação de Requisitos
 |Atividade|Método|Ferramenta|
@@ -58,11 +56,20 @@ Para o gerenciamento teremos como base o no ciclo de vida do modelo Unificado (R
 ### 3.4	Verificação e Validação de Requisitos
 |Atividade|Método|Ferramenta|
 |:-------:|:----:|:--------:|
-||||
+|Refinar a Definição do Sistema| Utilizar MoSCoW para priorizar requisitos e criar um checklist para verificar se estão sendo atendidos | Planilha do Google Sheets |
 
 ### 3.5	Gerenciamento de Requisitos
 |Atividade|Método|Ferramenta|
 |:-------:|:----:|:--------:|
-||||
+| Gerenciar requisitos variáveis |Durante o desenvolvimento, nas sprints Reviews será feita a verificação dos requisitos e alterações caso necessário| Planilha do Google Sheets e reuniões virtuais |
 
 ## 4 Lições Aprendidas
+
+### 4.1 Unidade 1
+Durante essa primeira etapa, podemos aprender mais sobre o Processo Unificado e sua forma de gerencia de Requisitos, além de aprendermos sobre a configuração e disponibilização do mkdocs
+
+## 5 Referẽncias Bibliográficas
+
+> [Ficha Épica](https://ficha.epicorpg.com.br/)
+
+> [RUP Homepage](https://sceweb.uhcl.edu/helm/RationalUnifiedProcess/)
