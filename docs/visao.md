@@ -31,6 +31,11 @@
 Para a metodologia foi escolhido um modelo híbrido com principais ágeis que seja adaptável a nossa realidade para otimizar os processos de desenvolvimento, para isso se utilizou alguns elementos do Scrum, como as sprints que serão organizadas com duração de 2 semanas, com sprints reviews e sprint plannings definidos e alguns cargos como P.O e Scrum Master, além de uma reunião semanal de acompanhamento, isso irá facilitar o controle dos entregáveis e garantir o andamento do projeto, para otimizar o aprendizado e as revisões será utilizado o pair programming do XP, de maneira que a cada sprint o pareamento dos membros sejam permutados de maneira a fazer com que todos interajam entre sí, melhorando o relacionamento dos desenvolvedores no projeto, por fim esses modelos serão gerenciados com base no ciclo de vida do modelo Unificado (RUP), alinhando as etapas desse processo aos entregáveis da disciplina garantindo que todo o processo seja cumprido dentro dos prazos
 
 ## 3 Abordagem de Engenharia de Requisitos
+A abordagem de Engenharia de Requisitos seguirá o padrão proposto pelo processo uníficado, onde primeiro iremos análisar o problema, entender a necessidade dos stakeholders, definir o sistema, gerenciar o escopo do sistema e por fim continuar refinando a definição do sistema, dessa forma serão seguidas essas etapas para construção de requisitos funcionais e também os não funcionais, para que no final todos os requisitos do sistema sejam atendidos.
+
+É possível observar o fluxo da abordagem de Engenharia de Requisitos pelo fluxograma abaixo:
+
+<img src="./docs/Assets/Images/wf_req.gif" width="900px"/>
 
 ### 3.1 Elicitação de Requisitos
 |Atividade|Método|Ferramenta|
