@@ -18,6 +18,7 @@
 ### 1.2 Declaração de Posição do Produto
 
 |   Para    | Mestres e Jogadores de RPG(Role-playing game) de mesa     |    
+| :--------: | :----: | 
 | Quem | Necessita de uma facilidade e praticidade de organização de fichas para personagens | 
 | O Tatsu| É uma ferramenta web | 
 | Que | Tem em sua plataforma uma maneira muito mais simples de armazenar as informações dos personagens em uma sessão de RPG|
