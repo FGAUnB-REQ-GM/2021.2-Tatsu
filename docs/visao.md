@@ -27,6 +27,8 @@
 
 ### 1.3 Objetivos do Produto
 
+O objetivo do site Tatsu é centralizar todas as ferramentas necessárias para jogar um RPG de mesa. O Objetivo principal é permitir a criação e gerenciamento de fichas por jogadores e mestres e os secundários é disponibilizar funções de rolagem automática de dados de acordo com os atributos das fichas.
+
 ## 2 Abordagem de Desenvolvimento de Software
 
 Para a metodologia foi escolhido um modelo híbrido com principais ágeis que seja adaptável a nossa realidade para otimizar os processos de desenvolvimento, para isso se utilizou alguns elementos do Scrum, como as sprints que serão organizadas com duração de 2 semanas, com sprints reviews e sprint plannings definidos e alguns cargos como P.O e Scrum Master, além de uma reunião semanal de acompanhamento, isso irá facilitar o controle dos entregáveis e garantir o andamento do projeto, para otimizar o aprendizado e as revisões será utilizado o pair programming do XP, de maneira que a cada sprint o pareamento dos membros sejam permutados de maneira a fazer com que todos interajam entre sí, melhorando o relacionamento dos desenvolvedores no projeto.
