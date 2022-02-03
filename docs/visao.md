@@ -18,6 +18,7 @@
 ### 1.2 Declaração de Posição do Produto
 
 |   Para    | Mestres e Jogadores de RPG(Role-playing game) de mesa     |    
+| :--------: | :----: | 
 | Quem | Necessita de uma facilidade e praticidade de organização de fichas para personagens | 
 | O Tatsu| É uma ferramenta web | 
 | Que | Tem em sua plataforma uma maneira muito mais simples de armazenar as informações dos personagens em uma sessão de RPG|
@@ -25,6 +26,8 @@
 | Nosso Produto | permite a criação de um ficheiro onde seria criado fichas individuais que podem ser atualizadas por qualquer jogador utilizando um link. Além disso, a nossa plataforma irá permitir que os jogadores rolem os dados de acordo com os atributos da ficha |
 
 ### 1.3 Objetivos do Produto
+
+O objetivo do site Tatsu é centralizar todas as ferramentas necessárias para jogar um RPG de mesa. O Objetivo principal é permitir a criação e gerenciamento de fichas por jogadores e mestres e os secundários é disponibilizar funções de rolagem automática de dados de acordo com os atributos das fichas.
 
 ## 2 Abordagem de Desenvolvimento de Software
 
