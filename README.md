@@ -5,7 +5,7 @@ Repositório voltado para documentação do projeto Tatsu, desenvolvido pelos me
 | Nome | Matrícula | 
 | -    | -         | 
 | Leonardo de Souza Takehana | 190032430 
-| Gabriel Balbino | 18/0075462 | 
-| Natan Tavares | 20/0025449 | 
+| Gabriel Balbino | 180075462 | 
+| Natan Tavares | 200025449 | 
 | Luiz Gustavo Ferreira Rocha | 180023161 |
 | Joao Paulo Lima da Silva | 190030755 
