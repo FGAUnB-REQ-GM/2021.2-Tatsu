@@ -69,7 +69,7 @@ A abordagem de Engenharia de Requisitos seguirá o padrão proposto pelo process
 ## 4 Lições Aprendidas
 
 ### 4.1 Unidade 1
-Durante essa primeira etapa, podemos aprender mais sobre o Processo Unificado e sua forma de gerencia de Requisitos, além de aprendermos sobre a configuração e disponibilização do mkdocs
+Durante essa primeira etapa, podemos aprender mais sobre o Processo Unificado e sua forma de gerenciamento de requisitos, além de aprendermos sobre a configuração e disponibilização do mkdocs no github pages.
 
 ## 5 Referẽncias Bibliográficas
 
