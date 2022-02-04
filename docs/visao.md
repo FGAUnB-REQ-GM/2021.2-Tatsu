@@ -9,6 +9,8 @@
 
 ### 1.1 Declaração do Problema
 
+<span style="color:red">Me parece que o problema está próximo a dificuldade de organização de fichas de RPG, do que a falta de uma plataforma. A plataforma faz parte da solução. Vejam: lá na declaração do produto vcs falam em: "Quem - Necessita de uma facilidade e praticidade de organização de fichas para personagens"</span>
+
 |   O Problema     | Jogadores de RPG não possuem uma plataforma única para fazer a criação e o gerenciamento de várias fichas de RPG e a rolagem automática de dados de acordo com os atributos definidos na ficha |    
 | :--------: | :----: | 
 | Afeta |  Jogadores de RPG de mesa  | 
@@ -25,9 +27,13 @@
 | Ao contrário | do aplitcativo para celular "Ficha Épica" |
 | Nosso Produto | permite a criação de um ficheiro onde seria criado fichas individuais que podem ser atualizadas por qualquer jogador utilizando um link. Além disso, a nossa plataforma irá permitir que os jogadores rolem os dados de acordo com os atributos da ficha |
 
+<span style="color:red">O que é: "uma maneira muito mais simples de armazenar as informações dos personagens em uma sessão de RPG"? Sejam mais específicos. Isso é muito genérico.</span>
+
 ### 1.3 Objetivos do Produto
 
 O objetivo do site Tatsu é centralizar todas as ferramentas necessárias para jogar um RPG de mesa. O Objetivo principal é permitir a criação e gerenciamento de fichas por jogadores e mestres e os secundários é disponibilizar funções de rolagem automática de dados de acordo com os atributos das fichas.
+
+<span style="color:red">Vamos por partes: 1) centralizar todas as ferramentas. Que ferramentas? 2) qual a diferença entre objetivo e objetivo principal? Qual, de fato, é o objetivo? centralizar ferramentas? permitir a criação de fichas? permitir o gerenciamento de fichas? A partir disso, vocês podem definir objetivos secundários. Fiquem atentos, pois os objetivos precisam ser verificáveis.</span>
 
 ## 2 Abordagem de Desenvolvimento de Software
 
