@@ -18,6 +18,7 @@ nav:
   - Home: "index.md"
   - Visão: "visao.md"
   - Apresentação do Projeto: "apresentacao.md"
+  - Requisitos Iniciais: "requisitos_iniciais.md"
 
 markdown_extensions:
   - attr_list
