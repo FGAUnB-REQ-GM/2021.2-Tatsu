@@ -4,6 +4,7 @@
 |    Data    | Versão |                Descrição                |                     Autor                     |
 | :--------: | :----: | :-------------------------------------: | :-------------------------------------------: |
 | 01/02/2022 |  1.0   | Criação do Documento de Visão do Produto e Projeto | [Natan Santana](https://github.com/Neitan2001), [Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR) |
+| 10/02/2022 |  1.1   | Ajustes do tópico 1 | [Natan Santana](https://github.com/Neitan2001) |
 
 ## 1 Visão Geral do Produto
 
@@ -11,7 +12,7 @@
 
 <span style="color:red">Me parece que o problema está próximo a dificuldade de organização de fichas de RPG, do que a falta de uma plataforma. A plataforma faz parte da solução. Vejam: lá na declaração do produto vcs falam em: "Quem - Necessita de uma facilidade e praticidade de organização de fichas para personagens"</span>
 
-|   O Problema     | Jogadores de RPG não possuem uma plataforma única para fazer a criação e o gerenciamento de várias fichas de RPG e a rolagem automática de dados de acordo com os atributos definidos na ficha |    
+|   O Problema     | Jogadores de RPG possuem uma dificuldade para organizar as fichas de uma campanha de RPG de mesa, dificultando e atrasando a jogatina. |    
 | :--------: | :----: | 
 | Afeta |  Jogadores de RPG de mesa  | 
 | Cujo Impacto é | Os jogadores acabam utilizando várias plataformas para jogar um jogo, as vezes até dependendo de materiais físicos e isso gera muita desorganização |
@@ -23,7 +24,7 @@
 | :--------: | :----: | 
 | Quem | Necessita de uma facilidade e praticidade de organização de fichas para personagens | 
 | O Tatsu| É uma ferramenta web | 
-| Que | Tem em sua plataforma uma maneira muito mais simples de armazenar as informações dos personagens em uma sessão de RPG|
+| Que | Permite a criação e o gerenciamento de fichas de personagens de RPG|
 | Ao contrário | do aplitcativo para celular "Ficha Épica" |
 | Nosso Produto | permite a criação de um ficheiro onde seria criado fichas individuais que podem ser atualizadas por qualquer jogador utilizando um link. Além disso, a nossa plataforma irá permitir que os jogadores rolem os dados de acordo com os atributos da ficha |
 
@@ -31,7 +32,7 @@
 
 ### 1.3 Objetivos do Produto
 
-O objetivo do site Tatsu é centralizar todas as ferramentas necessárias para jogar um RPG de mesa. O Objetivo principal é permitir a criação e gerenciamento de fichas por jogadores e mestres e os secundários é disponibilizar funções de rolagem automática de dados de acordo com os atributos das fichas.
+O objetivo principal do site Tatsu é permitir a criação de ficheiros que podem organizar fichas de personagens de RPG, permitindo que o usuários as editem a qualquer instante. Além disso, o site possui o objetivo secundário de facilitar a jogatina de um RPG de mesa por meio da plataforma ao permitir rolagem automática de dados de acordo com os atributos das fichas e histórico  de rolagem de dados, danos sofridos por cada personagem e experiência obtida durante combates
 
 <span style="color:red">Vamos por partes: 1) centralizar todas as ferramentas. Que ferramentas? 2) qual a diferença entre objetivo e objetivo principal? Qual, de fato, é o objetivo? centralizar ferramentas? permitir a criação de fichas? permitir o gerenciamento de fichas? A partir disso, vocês podem definir objetivos secundários. Fiquem atentos, pois os objetivos precisam ser verificáveis.</span>
 
