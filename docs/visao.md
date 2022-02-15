@@ -34,23 +34,32 @@ O objetivo principal do site Tatsu é permitir a criação de ficheiros que pode
 
 ## 2 Abordagem de Desenvolvimento de Software
 
-<span style="color:red">Utilizar o Sommerville como referência para fundamentar a escolha, abaixo. Fiz ajustes no texto, pois o tamanho da frase e a falta de pontuação estavam bem estranhos.</span>
 
-Para a metodologia foi escolhido um modelo híbrido com <span style="color:red">???</span> principais ágeis que seja adaptável a nossa realidade para otimizar os processos de desenvolvimento. Para isso, se utilizou alguns elementos do Scrum como, as sprints que serão organizadas com duração de 2 semanas, com sprints reviews e sprint plannings definidos e alguns papéis como P.O e Scrum Master, além de uma reunião semanal de acompanhamento. Esses elementos irão facilitar o controle dos entregáveis e garantir o andamento do projeto. Para otimizar o aprendizado e as revisões será utilizado o pair programming do XP, de maneira que a cada sprint o pareamento dos membros sejam permutados de maneira a fazer com que todos interajam entre sí, melhorando o relacionamento dos desenvolvedores no projeto.
+
+Para a metodologia foi escolhido um modelo com base em princípios ágeis que seja adaptável a nossa realidade para otimizar os processos de desenvolvimento, utilizando elementos do SCRUM, XP e também do RUP.
+Os elementos utilizados com base no SCRUM serão as sprints, organizadas com duração de 2 semanas, com sprints reviews e sprint plannings definidos e alguns papéis como P.O e Scrum Master, além de uma reunião semanal de acompanhamento. 
+Para otimizar o aprendizado e as revisões será utilizado o pair programming do XP, de maneira que a cada sprint o pareamento dos membros sejam permutados de maneira a fazer com que todos interajam entre sí, melhorando o relacionamento dos desenvolvedores no projeto.
+Por fim, o processo seguirá os conceitos do RUP, com algumas modificações, utilizando as etapas do fluxo de desenvolvimento especificado de acordo com essa metodologia, dividindo nas etapas: modelagem de negócio, requisitos, análise e design, implementação, teste e implantação.
 
 ## 3 Abordagem de Engenharia de Requisitos
 
-<span style="color:red">Me conta aí: na prática, como vocês vão encaixar as atividades da disciplina de Requisitos, do Processo Unificado, no Scrum?</span>
-
-A abordagem de Engenharia de Requisitos seguirá o padrão proposto pelo Processo Unificado, onde primeiro iremos análisar o problema, entender a necessidade dos stakeholders, definir o sistema, gerenciar o escopo do sistema e por fim continuar refinando a definição do sistema, dessa forma serão seguidas essas etapas para construção de requisitos funcionais e também os não funcionais, para que no final todos os requisitos do sistema sejam atendidos.
+A abordagem de Engenharia de Requisitos terá como base o padrão proposto pelo Processo Unificado, com leves modificações, onde primeiro iremos análisar o problema, entender a necessidade dos stakeholders, definir o sistema, gerenciar o escopo do sistema e por fim continuar refinando a definição do sistema, dessa forma serão seguidas essas etapas para construção de requisitos funcionais e também os não funcionais, para que no final todos os requisitos do sistema sejam atendidos.
 
 É possível observar o fluxo da abordagem de Engenharia de Requisitos pelo fluxograma abaixo:
 
-<span style="color:red">Alterem essa imagem para uma que esteja em português, adequado ao trabalho de vocês. Além disso, façam referência a versão do Processo Unificado que vocês estão utilizando como base.</span>
-
 <img src="../Assets/Images/wf_req.gif" width="900px"/>
 
-<span style="color:red">Revejam as atividades da Engenharia de Requisitos, de acordo com os comentários, abaixo.</span>
+De acordo com essa imagem podemos separar a engenharia de requisitos em 6 etapas, onde cada uma corresponderia a uma etapa das atividades da disciplina.
+
+Começando com a etapa de elicitação de requisitos, onde serão executadas as atuvudades de Analizar o Problema e Entender as Necesidades dos Stakeholders, onde serão feitos brainstormings com o objetivo de coletar todas as ideias de requisitos do grupo para o nosso projeto.
+
+Na segunda etapa seria a de análise de requisitos, onde no RUP seria o equivalente a definir o sistema, nessa etapa seriam filtrados os requisitos levantados na elicitação e classificados como funcionais ou não funcionais.
+
+Após isso na etapa de documentação dos requisitos, seguirá a etapa de gerenciar o escopo do sistema, com modificações de acordo com a proposta do RUP, pois no lugar de utilizar casos de uso, iremos trabalhar com historias de usuários, épicos e features, pois se adapta melhor a abordagem mesclada com as Sprints que iremos utilizar, pois isso torna mais fácil a divisão em issues bisemanais para a execução de atividades de desenvolvimento. 
+
+Na etapa de verificação e validação de requisitos iremos refinar a definição do sistema durante as sprints, verificando o andamento do projeto de acordo com o cronograma definido pelo Scrum Master e verificar se tudo está de acordo, além de definir e específicar os requisitos cada vez mais
+
+Por ultimo temos o gerenciamento de requisitos que no RUP irá corresponder a gerenciar os requisitos variaveis, onde consiste em rever os requisitos e se houve alguma alteração de acordo com a verificação da etapa anterior, para refazer prioridades ou possíveis alterações no escopo do sistema que podem ser causadas por algum elemento não previsto.
 
 ### 3.1 Elicitação de Requisitos
 |Atividade|Método|Ferramenta|
@@ -61,30 +70,24 @@ A abordagem de Engenharia de Requisitos seguirá o padrão proposto pelo Process
 ### 3.2	Análise de Requisitos
 |Atividade|Método|Ferramenta|
 |:-------:|:----:|:--------:|
-|Definir o Sistema| Storyboarding | Plataforma "Miro" |
-
-<span style="color:red">Definir o Sistema com Storyboard? Revejam, conceitualmente, o que é esse atividade. Não me faz sentido, utilizar Storyborad para isso.</span>
+|Definir o Sistema| Separação dos requisitos levantados no brainstorming das etapas anteriores, para classifica-los como funcionais ou não funcionais | Plataforma "Miro" |
 
 ### 3.3	Documentação de Requisitos
 |Atividade|Método|Ferramenta|
 |:-------:|:----:|:--------:|
-|Definição do backlog | Histórias de Usuário, Épicos e Features| Planilha do Google Sheets |
+|Gerenciar o escopo do sistema | Separar os requisitos análisados em Histórias de Usuário, Épicos e Features e definir prioridades de execução| Planilha do Google Sheets |
 
-<span style="color:red">Essa não é uma atividade do fluxo de atividades de requisitos que vocês apresentam, acima. Além disso, vocês falam em utilizar o fluxo de atividades do Processo Unificado, que é dirigido a caso de uso, com histórias, épicos e features? Como é isso? Acho que vcs estão misturando banana com abacaxi. São coisas diferentes.</span>
 
 ### 3.4	Verificação e Validação de Requisitos
 |Atividade|Método|Ferramenta|
 |:-------:|:----:|:--------:|
-|Refinar a Definição do Sistema| Utilizar MoSCoW para priorizar requisitos e criar um checklist para verificar se estão sendo atendidos | Planilha do Google Sheets |
+|Refinar a Definição do Sistema| Conferir se os requisitos foram atendidos através de testes de software e também a validação constante se esses requisitos ainda fazem sentidos, sendo realizadas ao final de cada Sprint durante a reunião de Sprint Review| Testes de software, reuniões online e planilha do Google Sheets |
 
-<span style="color:red">Refinar o Sistema com Moscow? Revejam, conceitualmente, o que é esse atividade. Não me faz sentido, utilizar Moscow para isso.</span>
 
 ### 3.5	Gerenciamento de Requisitos
 |Atividade|Método|Ferramenta|
 |:-------:|:----:|:--------:|
-| Gerenciar requisitos variáveis |Durante o desenvolvimento, nas sprints Reviews será feita a verificação dos requisitos e alterações caso necessário| Planilha do Google Sheets e reuniões virtuais |
-
-<span style="color:red">Qual método? Inspeção? E a rastreabiliadde de requisitos, não será gerenciada?</span>
+| Gerenciar requisitos variáveis |Durante o desenvolvimento, no sprint planning de cada Sprint serão revistos todos os Requisitos que não fizeram sentido de acordo com a validação e verificação da etapa anterior e será feita a alteração dos atributos de requisito e mudanãs nos relacionamentos de rastreabilidade caso necessários| Planilha do Google Sheets e reuniões virtuais |
 
 ## 4 Lições Aprendidas
 
