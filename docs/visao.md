@@ -47,7 +47,7 @@ A abordagem de Engenharia de Requisitos terá como base o padrão proposto pelo 
 
 É possível observar o fluxo da abordagem de Engenharia de Requisitos pelo fluxograma abaixo:
 
-<img src="../Assets/Images/wf_req.gif" width="900px"/>
+<img src="../Assets/Images/requisitosRUP.png" width="900px"/>
 
 De acordo com essa imagem podemos separar a engenharia de requisitos em 6 etapas, onde cada uma corresponderia a uma etapa das atividades da disciplina.
 
