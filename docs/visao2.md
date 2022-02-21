@@ -181,6 +181,12 @@ Por ultimo temos o gerenciamento de requisitos que no RUP irá corresponder a ge
 |Código desorganizado. | Gera dificuldade em dar manutenção no produto futuramente causando problemas aos desenvolvimento do projeto. | Organização durante o desenvolvimento sempre revisada por um pareamento.|
 
 ### 4.5 Critérios de Replanejamento
+* Algum membro sair do projeto;
+* Os requisitos propostos pela disciplina mudarem;
+* O semestre letivo ser suspenso;
+* As tecnologias utilizadas são descontinuadas;
+* Algum membro ficar doente;
+* Atraso no cronograma do projeto.
 
 ## 5 Lições Aprendidas
 
