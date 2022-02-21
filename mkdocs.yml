@@ -20,6 +20,8 @@ nav:
   - Visão Unidade 2: "visao2.md"
   - Apresentação do Projeto: "apresentacao.md"
   - Requisitos Iniciais: "requisitos_iniciais.md"
-
+  - Kanban: "kanban.md"
+  - Canvas MVP: "canvasMVP.md"
+  
 markdown_extensions:
   - attr_list
