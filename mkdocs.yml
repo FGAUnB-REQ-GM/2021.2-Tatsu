@@ -16,7 +16,8 @@ extra_css:
 
 nav:
   - Home: "index.md"
-  - Visão: "visao.md"
+  - Visão Unidade 1: "visao.md"
+  - Visão Unidade 2: "visao2.md"
   - Apresentação do Projeto: "apresentacao.md"
   - Requisitos Iniciais: "requisitos_iniciais.md"
 

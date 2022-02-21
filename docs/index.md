@@ -9,6 +9,7 @@ Documentação do projeto Tatsu, desenvolvido pelos membros do Grupo Tatsu da di
 
 ### Unidade 2
 - [Requisitos Iniciais](https://fgaunb-req-gm.github.io/2021.2-Tatsu/requisitos_iniciais/)
+- [Visão do produto] (https://fgaunb-req-gm.github.io/2021.2-Tatsu/visao2/)
 
 ## Time
 <div class="container"> 
