@@ -12,6 +12,7 @@ Documentação do projeto Tatsu, desenvolvido pelos membros do Grupo Tatsu da di
 - [Visão do produto](https://fgaunb-req-gm.github.io/2021.2-Tatsu/visao2/)
 - [Quadro Kanban](https://fgaunb-req-gm.github.io/2021.2-Tatsu/kanban/)
 - [Canvas MVP](https://fgaunb-req-gm.github.io/2021.2-Tatsu/canvasMVP/)
+- [Apresentação do Projeto](https://fgaunb-req-gm.github.io/2021.2-Tatsu/apresentacao/)
 
 ## Time
 <div class="container"> 
