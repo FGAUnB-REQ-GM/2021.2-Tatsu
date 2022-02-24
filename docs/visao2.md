@@ -194,6 +194,10 @@ Por ultimo temos o gerenciamento de requisitos que no RUP irá corresponder a ge
 
 Durante essa primeira etapa, podemos aprender mais sobre o Processo Unificado e sua forma de gerenciamento de requisitos, além de aprendermos sobre a configuração e disponibilização do mkdocs no github pages.
 
+### 5.2 Unidade 2
+
+Na segunda etapa da matéria, o time aprendeu sobre elicitação de requisitos utilizando o Safe. Além de aprendermos sobre o Canvas MVP e o quadro Kanban.
+
 ## 6 Referências Bibliográficas
 
 > [Ficha Épica](https://ficha.epicorpg.com.br/)
