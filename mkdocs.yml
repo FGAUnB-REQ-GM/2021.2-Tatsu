@@ -1,0 +1,27 @@
+site_name: Tatsu 
+
+repo_url: https://github.com/FGAUnB-REQ-GM/2021.2-Tatsu
+edit_uri: ""
+
+
+theme: 
+  name: material
+  features: navigation.tabs
+  logo: Assets/Images/LogoHorizontal.svg
+  favicon: Assets/Images/favicon.ico
+
+
+extra_css:
+  - Assets/Stylesheets/extra.css
+
+nav:
+  - Home: "index.md"
+  - Visão Unidade 1: "visao.md"
+  - Visão Unidade 2: "visao2.md"
+  - Apresentação do Projeto: "apresentacao.md"
+  - Requisitos Iniciais: "requisitos_iniciais.md"
+  - Kanban: "kanban.md"
+  - Canvas MVP: "canvasMVP.md"
+  
+markdown_extensions:
+  - attr_list
