@@ -1,0 +1,29 @@
+version: '3.8'
+
+services: 
+  db: 
+    image: postgres:14.2
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=tatsu_user
+      - POSTGRES_PASSWORD=tatsu_pass
+      - POSTGRES_DB=Tatsu
+
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    restart: always
+
+  server:
+    build: src 
+    volumes:
+      - ./src/:/usr/src/app/
+    ports:
+      - '5050:5050'
+    depends_on: 
+      - db
+
+
+volumes:
+  db-data:
+    driver: local
