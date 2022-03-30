@@ -2,6 +2,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
+import models
+
 POSTGRES = {
     'user': 'tatsu_user',
     'pw': 'tatsu_pass',
