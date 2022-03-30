@@ -1,12 +1,13 @@
 from flask_sqlalchemy import SQLAlchemy
-import datetime
+
 
 db = SQLAlchemy()
 
+import datetime
 
 class PlayerCharacter(db.Model):
     __tablename__= 'playerCharacter'
-    Id = db.Column(db.Integer,nullable=False,primary_key)
+    Id = db.Column(db.Integer,nullable=False,primary_key=True)
     playerId= db.Column(db.Integer,db.ForeignKey('gamePlayers.Id'))
     characterSheetId= db.Column(db.Integer,db.ForeignKey('characterSheet.Id'))
     createdAt = (db.DateTime)

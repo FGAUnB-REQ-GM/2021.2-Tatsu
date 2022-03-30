@@ -1,12 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
-import datetime
+
 
 db = SQLAlchemy()
+
+import datetime
 
 
 class User(db.Model):
     __tablename__= 'user'
-    Id = db.Column(db.Integer,nullable=False,primary_key)
+    Id = db.Column(db.Integer,nullable=False,primary_key=True)
     userName = db.Column(db.String,unique=True,nullable=False)
     email = db.Column(db.String,unique=True,nullable=False)
     password = db.Column(db.String,nullable=False)

@@ -1,12 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
-import datetime
+
 
 db = SQLAlchemy()
+
+import datetime
 
 
 class Message(db.Model):
     __tablename__= 'message'
-    Id = db.Column(db.Integer,nullable=False,primary_key)
+    Id = db.Column(db.Integer,nullable=False,primary_key=True)
     userId= db.Column(db.Integer,db.ForeignKey('user.Id'))
     gameId= db.Column(db.Integer,db.ForeignKey('game.Id'))
     content = db.Column(db.String)

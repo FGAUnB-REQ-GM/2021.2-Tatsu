@@ -1,5 +1,3 @@
-from flask_sqlalchemy import SQLAlchemy
-
 from .user import *
 from .attacksSpellcasting import *
 from .attributes import *
@@ -12,5 +10,3 @@ from .message import *
 from .playerCharacter import *
 from . skills import *
 from .strokes import *
-
-db = SQLAlchemy()

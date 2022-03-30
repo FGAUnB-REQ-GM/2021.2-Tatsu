@@ -1,16 +1,18 @@
 from flask_sqlalchemy import SQLAlchemy
-import datetime
+
 
 db = SQLAlchemy()
+
+import datetime
 
 
 class Game(db.Model):
     __tablename__= 'game'
-    Id = db.Column(db.Integer,nullable=False,primary_key)
+    Id = db.Column(db.Integer,nullable=False,primary_key=True)
     name = db.Column(db.String,nullable=False)
     userId = db.Column(db.Integer,db.ForeignKey('user.Id'))
     gameMode = db.Column(db.String,nullable=False)
-    timer = db.Column(db.Timer)
+    timer = db.Column(db.Time)
     createdAt = db.Column(db.DateTime)
     updatedAt = db.Column(db.DateTime)
     gamePlayers = db.relationship('GamePlayers',backref = 'game',lazy = True)

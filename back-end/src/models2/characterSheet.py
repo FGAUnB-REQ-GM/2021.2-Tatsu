@@ -1,12 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
-import datetime
+
 
 db = SQLAlchemy()
+
+import datetime
 
 
 class CharacterSheet(db.Model):
     __tablename__= 'characterSheet'
-    Id = db.Column(db.Integer,nullable=False,primary_key)
+    Id = db.Column(db.Integer,nullable=False,primary_key=True)
     game = db.Column(db.Integer,db.ForeignKey('game.Id'))
     characterName = db.Column(db.String)
     vClass = db.Column(db.String)

@@ -1,12 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
-import datetime
 
 db = SQLAlchemy()
+
+import datetime
+
 
 
 class Bonus(db.Model):
     __tablename__= 'Bonus'
-    Id = db.Column(db.Integer,nullable=False,primary_key)
+    Id = db.Column(db.Integer,nullable=False,primary_key=True)
     characterSheetId = db.Column(db.Integer,db.ForeignKey('characterSheet.Id'))
     savingThrows = db.Column(db.String)
     proficiencyBonus = db.Column(db.Integer)

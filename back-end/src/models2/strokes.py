@@ -1,12 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
-import datetime
+
 
 db = SQLAlchemy()
+
+import datetime
 
 
 class Strokes(db.Model):
     __tablename__= 'strokes'
-    Id = db.Column(db.Integer,nullable=False,primary_key)
+    Id = db.Column(db.Integer,nullable=False,primary_key=True)
     characterSheetId= db.Column(db.Integer,db.ForeignKey('characterSheet.Id'))
     personalityTraits = db.Column(db.String)
     ideals = db.Column(db.String)

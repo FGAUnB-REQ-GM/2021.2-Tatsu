@@ -1,12 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
-import datetime
 
 db = SQLAlchemy()
+import datetime
 
 
 class AttacksSpellcasting(db.Model):
     __tablename__= 'attacksSpellcasting'
-    Id = db.Column(db.Integer,nullable = False,primary_key)
+    Id = db.Column(db.Integer,nullable = False,primary_key=True)
     characterSheetId= db.Column(db.Integer,db.ForeignKey('characterSheet.Id'))
     name = db.Column(db.String,nullable = False)
     attackBonus = db.Column(db.Integer,nullable = False)

@@ -1,12 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
-import datetime
+
 
 db = SQLAlchemy()
+
+import datetime
 
 
 class Attributes(db.Model):
     __tablename__= 'attributes'
-    Id = db.Column(db.Integer,nullable=False,primary_key)
+    Id = db.Column(db.Integer,nullable=False,primary_key=True)
     characterSheetId= db.Column(db.Integer,db.ForeignKey('characterSheet.Id'))
     strenght = db.Column(db.Integer)
     modStrenght = db.Column(db.Integer)
