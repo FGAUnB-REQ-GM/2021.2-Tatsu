@@ -36,8 +36,7 @@ class LoginScreen extends React.Component {
               inputType="email"
               valueInput={this.state.email}
               onChangeInput={(event) => this.setEmail(event.target.value)}
-            >
-            </LoginInput>
+            ></LoginInput>
             <LoginInput
               idInput="password"
               nameInput="password"
@@ -45,16 +44,10 @@ class LoginScreen extends React.Component {
               inputType="password"
               valueInput={this.state.password}
               onChangeInput={(event) => this.setPassword(event.target.value)}
-            >
-            </LoginInput>
+            ></LoginInput>
             <StyledDiv>
               <MainButton title={"ENTRAR"} />
-              <Link link
-                to="/esqueci-senha"
-                onClick={() => {
-                  alert("Estamos trabalhando nisso");
-                }}
-              >
+              <Link link to="/register">
                 Não possui conta?
               </Link>
             </StyledDiv>

@@ -38,38 +38,14 @@ class RegisterScreen extends React.Component {
         <FormRegister>
           <img src={Logo} alt="Logo" />
           <form>
-            <label>Cadastro</label>
+            <label>Esqueceu sua senha?</label>
             <LoginInput
-              idInput="user"
-              nameInput="user"
-              placeholderInput="Usuário"
+              idInput="mail"
+              nameInput="mail"
+              placeholderInput="Email"
               inputType="text"
               valueInput={this.state.user}
               onChangeInput={(event) => this.setUser(event.target.value)}
-            ></LoginInput>
-            <LoginInput
-              idInput="email"
-              nameInput="email"
-              placeholderInput="Email"
-              inputType="email"
-              valueInput={this.state.email}
-              onChangeInput={(event) => this.setEmail(event.target.value)}
-            ></LoginInput>
-            <LoginInput
-              idInput="password"
-              nameInput="password"
-              placeholderInput="Senha"
-              inputType="password"
-              valueInput={this.state.password}
-              onChangeInput={(event) => this.setPassword(event.target.value)}
-            ></LoginInput>
-            <LoginInput
-              idInput="n_password"
-              nameInput="n_password"
-              placeholderInput="Repita a senha"
-              inputType="password"
-              valueInput={this.state.n_password}
-              onChangeInput={(event) => this.setN_password(event.target.value)}
             ></LoginInput>
             <StyledDiv>
               <MainButton
@@ -77,7 +53,7 @@ class RegisterScreen extends React.Component {
                 type="button"
                 onClick={() => window.history.back()}
               />
-              <MainButton title={"Cadastrar"} />
+              <MainButton title={"Solicitar Senha"} />
             </StyledDiv>
           </form>
         </FormRegister>
