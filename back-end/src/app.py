@@ -150,12 +150,16 @@ def readGames():
 
             games = models.Game.query.filter(models.Game.userId==userId).all()
 
+            user = models.User.query.filter(models.User.Id==userId).one()
+
             results=[]
             for game in games:
                 results.append({
                     "id":game.Id,
                     "name":game.name,
-                    "gameMode":game.gameMode
+                    "gameMode":game.gameMode,
+                    "createdAt":game.createdAt,
+                    "author":user.userName,
                 })
 
             return jsonify(results), 200
