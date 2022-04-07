@@ -1,8 +1,10 @@
+from hashlib import new
 from flask import Flask, request, jsonify, redirect, url_for
 import jwt
-from .utils import *
+from utils import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+import json
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
 
@@ -35,16 +37,16 @@ def createUser():
     if request.is_json:
         try:
             data = request.get_json()
-            newUser = models.User(userName=data['userName'],email=data["email"], password=generate_password_hash(data['password']))
+            newUser = models.User(userName=data['username'],email=data["email"], password=generate_password_hash(data['password']))
             if('biography' in data):
                 newUser.biography= data['biography']
             if('birthDate' in data):
                 newUser.birthDate= data['birthDate']
             db.session.add(newUser)
             db.session.commit()
-            token = newUser.encode_auth_token(newUser.id)
+            token = encode_auth_token(newUser.Id)
             token=token.decode('utf-8')
-            return jsonify({"message": f"O usuário {newUser.username} foi criado com sucesso.","token": f"{token}",'expiration': f"{datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)}"}), 200
+            return jsonify({"message": f"O usuário {newUser.userName} foi criado com sucesso.","token": f"{token}",'expiration': f"{datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)}"}), 200
         except Exception:
             return jsonify({"error": "Não foi possível criar um usuário"}),400
     else:
@@ -57,12 +59,12 @@ def logIn():
         auth = request.authorization
         if not auth or not auth.username or not auth.password:
             return jsonify({'message': 'Não foi possível verificar o usuário'}), 401
-        user = models.User.query.filter(db.or_(models.User.username == auth.username, models.User.email == auth.username)).one()
+        user = models.User.query.filter(db.or_(models.User.userName == auth.username, models.User.email == auth.username)).one()
         if not user:
             return jsonify({'message': 'Usuário não encontrado'}), 401
 
         if user and check_password_hash(user.password, auth.password):
-            token = encode_auth_token(user.id)
+            token = encode_auth_token(user.Id)
             return jsonify({'message': 'Usuário validado com sucesso!', 'token': token.decode('UTF-8'),
                             'expiration': datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)})
 
@@ -84,11 +86,11 @@ def updateUser():
                 if('biography' in data):
                     user.biography= data['biography']
                 if('birthDate' in data):
-                    user.birthDate= data['birthDate']
+                    user.birthDate= datetime.datetime.strptime(data['birthDate'], '%d-%m-%Y')
                 user.updatedAt=datetime.datetime.utcnow()
                 db.session.add(user)
                 db.session.commit()
-                return jsonify({"message": f"O usuário {user.username} foi atualizado com sucesso."}), 200
+                return jsonify({"message": f"O usuário {user.userName} foi atualizado com sucesso."}), 200
             return jsonify({"error": "Não foi possível atualizar um usuário"}),400
         except Exception:
             return jsonify({"error": "Não foi possível atualizar um usuário"}),400
@@ -145,7 +147,9 @@ def readGames():
         if(token):
             token= token.replace("Bearer ","")
             userId = decode_auth_token(token)
-            games = models.Game.query.filter(models.Game.userId==userId).order_by(models.Game.updated_at.desc()).all()
+
+            games = models.Game.query.filter(models.Game.userId==userId).all()
+
             results=[]
             for game in games:
                 results.append({
@@ -153,6 +157,7 @@ def readGames():
                     "name":game.name,
                     "gameMode":game.gameMode
                 })
+
             return jsonify(results), 200
         return jsonify({"error": "Não foi possível ler o ficheiro"}),400
     except Exception:
@@ -160,39 +165,40 @@ def readGames():
 
 @app.route("/game/<gameId>", methods=["GET"])
 def readGame(gameId):
-    try:
-        token = request.headers["authorization"]
-        if(token):
-            token= token.replace("Bearer ","")
-            userId = decode_auth_token(token)
-            game = models.Game.query.filter(models.Game.Id==gameId).one()
-            if(game.userId!=userId):
-                return jsonify({"error": "O usuário não tem permissão para acessar este ficheiro"}),400
-            characterSheets = models.CharacterSheet.query.filter(models.CharacterSheet.gameId==game.Id).order_by(models.CharacterSheet.createdAt.desc()).all()
-            characterSheetsResults=[]
-            for characterSheet in characterSheets:
-                characterSheetsResults.append({
-                    "id":characterSheet.Id,
-                    "characterName":characterSheet.characterName,
-                    "vClass":characterSheet.vClass,
-                    "race":characterSheet.race,
-                    "level":characterSheet.level,
-                    "background":characterSheet.background,
-                    "playerName":characterSheet.playerName,
-                    "alignment":characterSheet.alignment,
-                    "experience":characterSheet.experience
-                })
-            results={
-                "id":game.Id,
-                "name":game.name,
-                "gameMode":game.gameMode,
-                "charactersSheet":characterSheetsResults
-            }
+    #try:
+    token = request.headers["authorization"]
+    if(token):
+        token= token.replace("Bearer ","")
+        userId = decode_auth_token(token)
+        game = models.Game.query.filter(models.Game.Id==gameId).one()
+        if(game.userId!=userId):
+            return jsonify({"error": "O usuário não tem permissão para acessar este ficheiro"}),400
+        characterSheets = models.CharacterSheet.query.filter(models.CharacterSheet.gameId==game.Id).all()
+        if not characterSheets:
+            characterSheets=[]
+        characterSheetsResults=[]
+        for characterSheet in characterSheets:
+            characterSheetsResults.append({
+                "id":characterSheet.Id,
+                "characterName":characterSheet.characterName,
+                "class":characterSheet.vClass,
+                "level":characterSheet.level,
+                "background":characterSheet.background,
+                "playerName":characterSheet.playerName,
+                "alignment":characterSheet.alignment,
+                "experience":characterSheet.experience,
+            })
+        results={
+            "id":game.Id,
+            "name":game.name,
+            "gameMode":game.gameMode,
+            "charactersSheet":characterSheetsResults
+        }
 
-            return jsonify(results), 200
-        return jsonify({"error": "Não foi possível ler o ficheiro"}),400
-    except Exception:
-        return jsonify({"error": "Não foi possível ler o ficheiro"}),400
+        return jsonify(results), 200
+    return jsonify({"error": "Não foi possível ler o ficheiro"}),400
+    #except Exception:
+    #    return jsonify({"error": "Não foi possível ler o ficheiro"}),400
 
 
 @app.route("/game/<gameId>", methods=["PUT"])
@@ -248,11 +254,11 @@ def createCharacterSheet():
             if(token):
                 token= token.replace("Bearer ","")
                 userId = decode_auth_token(token)
-                game = models.Game.query.filter(models.Game.Id==data["gameId"]).one()
+                data = request.get_json()
+                game = models.Game.query.filter(models.Game.Id==int(data["gameId"])).one()
                 if(game.userId!=userId):
                     return jsonify({"error": "O usuário não tem permissão para criar esta ficha"}),400
-                data = request.get_json()
-                newCharacterSheet = models.CharacterSheet(data["gameId"],data["characterName"],data["class"],data["race"],data["background"],data["playerName"],data["alignment"])
+                newCharacterSheet = models.CharacterSheet(game.Id,data["characterName"],data["class"],data["race"],data["background"],data["playerName"],data["alignment"])
                 if('level' in data):
                     newCharacterSheet.level= data['level']
                 if('experience' in data):
@@ -374,116 +380,117 @@ def createCharacterSheet():
 
 @app.route("/characterSheet/<characterSheetId>", methods=["GET"])
 def readCharacterSheet(characterSheetId):
-    try:
-        token = request.headers["authorization"]
-        if(token):
-            token= token.replace("Bearer ","")
-            userId = decode_auth_token(token)
-            characterSheet = models.CharacterSheet.query.filter(models.CharacterSheet.Id==characterSheetId).one()
+   # try:
+    token = request.headers["authorization"]
+    if(token):
+        token= token.replace("Bearer ","")
+        userId = decode_auth_token(token)
+        characterSheet = models.CharacterSheet.query.filter(models.CharacterSheet.Id==characterSheetId).one()
 
-            game = models.Game.query.filter(models.Game.Id==characterSheet.gameId).one()
-            if(game.userId!=userId):
-                return jsonify({"error": "O usuário não tem permissão para acessar este ficheiro"}),400
+        game = models.Game.query.filter(models.Game.Id==characterSheet.gameId).one()
+        if(game.userId!=userId):
+            return jsonify({"error": "O usuário não tem permissão para acessar este ficheiro"}),400
 
-            attacksSpellcastings=models.AttacksSpellcasting.query.filter(models.AttacksSpellcasting.characterSheetId==characterSheet.Id).all()
+        attacksSpellcastings=models.AttacksSpellcasting.query.filter(models.AttacksSpellcasting.characterSheetId==characterSheet.Id).all()
 
-            equipments=models.Equipment.query.filter(models.Equipment.characterSheetId==characterSheet.Id).all()
-            
-            attacksSpellcastingResults=[]
-            equipmentResults=[]
+        equipments=models.Equipment.query.filter(models.Equipment.characterSheetId==characterSheet.Id).all()
+        
+        attacksSpellcastingResults=[]
+        equipmentResults=[]
 
-            for attackSpellcasting in attacksSpellcastings:
-                attacksSpellcastingResults.append({
-                    "name":attackSpellcasting.name,
-                    "attackBonus":attackSpellcasting.attackBonus,
-                    "damageType":attackSpellcasting.damageType
-                })
-
-
-            for equipment in equipments:
-                equipmentResults.append({
-                    "name":equipment.name,
-                    "description":equipment.description,
-                    "attunement":equipment.attunement,
-                    "cp":equipment.cp,
-                    "sp":equipment.sp,
-                    "ep":equipment.ep,
-                    "gp":equipment.gp,
-                    "pp":equipment.pp
-                })
-
-            results={
-                    "id":characterSheet.Id,
-                    "characterName":characterSheet.characterName,
-                    "vClass":characterSheet.vClass,
-                    "race":characterSheet.race,
-                    "level":characterSheet.level,
-                    "background":characterSheet.background,
-                    "playerName":characterSheet.playerName,
-                    "alignment":characterSheet.alignment,
-                    "experience":characterSheet.experience,
-                    "bnSavingThrows":characterSheet.bnSavingThrows,
-                    "bnProficiencyBonus":characterSheet.bnProficiencyBonus,
-                    "bnInspiration":characterSheet.bnInspiration,
-                    "bnStrength":characterSheet.bnStrength,
-                    "bnDexterity":characterSheet.bnDexterity,
-                    "bnConstituition":characterSheet.bnConstituition,
-                    "bnIntelligence":characterSheet.bnIntelligence,
-                    "bnWisdom":characterSheet.bnWisdom,
-                    "bnCharisma":characterSheet.bnCharisma,
-                    "skSkills":characterSheet.skSkills,
-                    "skAcrobatics":characterSheet.skAcrobatics,
-                    "skAnimalHandling":characterSheet.skAnimalHandling,
-                    "skArcana":characterSheet.skArcana,
-                    "skAthletics":characterSheet.skAthletics,
-                    "skDeception":characterSheet.skDeception,
-                    "skHistory":characterSheet.skHistory,
-                    "skInsight":characterSheet.skInsight,
-                    "skIntimidation":characterSheet.skIntimidation,
-                    "skInvestigation":characterSheet.skInvestigation,
-                    "skMedicine":characterSheet.skMedicine,
-                    "skNature":characterSheet.skNature,
-                    "skPersuasion":characterSheet.skPersuasion,
-                    "skReligion":characterSheet.skReligion,
-                    "skPerception":characterSheet.skPerception,
-                    "skPerformance":characterSheet.skPerformance,
-                    "skSleightOfHand":characterSheet.skSleightOfHand,
-                    "skStealth":characterSheet.skStealth,
-                    "skSurvival":characterSheet.skSurvival,
-                    "attStrength":characterSheet.attStrength,
-                    "attModStrength":characterSheet.attModStrength,
-                    "attDexterity":characterSheet.attDexterity,
-                    "attModDexterity":characterSheet.attModDexterity,
-                    "constitution":characterSheet.attConstitution,
-                    "attModConstitution":characterSheet.attModConstitution,
-                    "attIntelligence":characterSheet.attIntelligence,
-                    "modIntelligence":characterSheet.modIntelligence,
-                    "attWisdom":characterSheet.attWisdom,
-                    "attModWisdom":characterSheet.attModWisdom,
-                    "attCharisma":characterSheet.attCharisma,
-                    "attModCharisma":characterSheet.attModCharisma,
-                    "attPassiveWisdom":characterSheet.attPassiveWisdom,
-                    "armorClass":characterSheet.armorClass,
-                    "attInitiative":characterSheet.attInitiative,
-                    "attSpeed":characterSheet.attSpeed,
-                    "attMaxLife":characterSheet.attMaxLife,
-                    "attCurrentLife":characterSheet.attCurrentLife,
-                    "attLifeDice":characterSheet.attLifeDice,
-                    "stkPersonalityTraits":characterSheet.stkPersonalityTraits,
-                    "stkIdeals":characterSheet.stkIdeals,
-                    "stkBonds":characterSheet.stkBonds,
-                    "stkFlaws":characterSheet.stkFlaws,
-                    "stkOtherProeficienciesLanguages":characterSheet.stkOtherProeficienciesLanguages,
-                    "stkFeaturesTraits":characterSheet.stkFeaturesTraits,
-                    "attacksAndSpellcasting":attacksSpellcastingResults,
-                    "equpments":equipmentResults
-            }
+        for attackSpellcasting in attacksSpellcastings:
+            attacksSpellcastingResults.append({
+                "id":attackSpellcasting.Id,
+                "name":attackSpellcasting.name,
+                "attackBonus":attackSpellcasting.attackBonus,
+                "damageType":attackSpellcasting.damageType
+            })
 
 
-            return jsonify(results), 200
-        return jsonify({"error": "Não foi possível ler o ficheiro"}),400
-    except Exception:
-        return jsonify({"error": "Não foi possível ler o usuário"}),400
+        for equipment in equipments:
+            equipmentResults.append({
+                "id":equipment.Id,
+                "name":equipment.name,
+                "description":equipment.description,
+                "attunement":equipment.attunement,
+                "cp":equipment.cp,
+                "sp":equipment.sp,
+                "ep":equipment.ep,
+                "gp":equipment.gp,
+                "pp":equipment.pp
+            })
+
+        results={
+                "id":characterSheet.Id,
+                "characterName":characterSheet.characterName,
+                "class":characterSheet.vClass,
+                "level":characterSheet.level,
+                "background":characterSheet.background,
+                "playerName":characterSheet.playerName,
+                "alignment":characterSheet.alignment,
+                "experience":characterSheet.experience,
+                "bnSavingThrows":characterSheet.bnSavingThrows,
+                "bnProficiencyBonus":characterSheet.bnProficiencyBonus,
+                "bnInspiration":characterSheet.bnInspiration,
+                "bnStrength":characterSheet.bnStrength,
+                "bnDexterity":characterSheet.bnDexterity,
+                "bnConstituition":characterSheet.bnConstituition,
+                "bnIntelligence":characterSheet.bnIntelligence,
+                "bnWisdom":characterSheet.bnWisdom,
+                "bnCharisma":characterSheet.bnCharisma,
+                "skSkills":characterSheet.skSkills,
+                "skAcrobatics":characterSheet.skAcrobatics,
+                "skAnimalHandling":characterSheet.skAnimalHandling,
+                "skArcana":characterSheet.skArcana,
+                "skAthletics":characterSheet.skAthletics,
+                "skDeception":characterSheet.skDeception,
+                "skHistory":characterSheet.skHistory,
+                "skInsight":characterSheet.skInsight,
+                "skIntimidation":characterSheet.skIntimidation,
+                "skInvestigation":characterSheet.skInvestigation,
+                "skMedicine":characterSheet.skMedicine,
+                "skNature":characterSheet.skNature,
+                "skPersuasion":characterSheet.skPersuasion,
+                "skReligion":characterSheet.skReligion,
+                "skPerception":characterSheet.skPerception,
+                "skPerformance":characterSheet.skPerformance,
+                "skSleightOfHand":characterSheet.skSleightOfHand,
+                "skStealth":characterSheet.skStealth,
+                "skSurvival":characterSheet.skSurvival,
+                "attStrength":characterSheet.attStrength,
+                "attModStrength":characterSheet.attModStrength,
+                "attDexterity":characterSheet.attDexterity,
+                "attModDexterity":characterSheet.attModDexterity,
+                "constitution":characterSheet.attConstitution,
+                "attModConstitution":characterSheet.attModConstitution,
+                "attIntelligence":characterSheet.attIntelligence,
+                "attModIntelligence":characterSheet.attModIntelligence,
+                "attWisdom":characterSheet.attWisdom,
+                "attModWisdom":characterSheet.attModWisdom,
+                "attCharisma":characterSheet.attCharisma,
+                "attModCharisma":characterSheet.attModCharisma,
+                "attPassiveWisdom":characterSheet.attPassiveWisdom,
+                "attArmorClass":characterSheet.attArmorClass,
+                "attInitiative":characterSheet.attInitiative,
+                "attSpeed":characterSheet.attSpeed,
+                "attMaxLife":characterSheet.attMaxLife,
+                "attCurrentLife":characterSheet.attCurrentLife,
+                "attLifeDice":characterSheet.attLifeDice,
+                "stkPersonalityTraits":characterSheet.stkPersonalityTraits,
+                "stkIdeals":characterSheet.stkIdeals,
+                "stkBonds":characterSheet.stkBonds,
+                "stkFlaws":characterSheet.stkFlaws,
+                "stkOtherProeficienciesLanguages":characterSheet.stkOtherProeficienciesLanguages,
+                "stkFeaturesTraits":characterSheet.stkFeaturesTraits,
+                "attacksAndSpellcasting":attacksSpellcastingResults,
+                "equpments":equipmentResults
+        }
+
+
+        return jsonify(results), 200
+    return jsonify({"error": "Não foi possível ler o ficheiro"}),400
+   # except Exception:
+   #     return jsonify({"error": "Não foi possível ler o usuário"}),400
 
 
 @app.route("/characterSheet/<characterSheetId>", methods=["PUT"])
@@ -765,7 +772,7 @@ def createEquipment():
                 game = models.Game.query.filter(models.Game.Id==characterSheet.gameId).one()
                 if(game.userId!=userId):
                     return jsonify({"error": "O usuário não tem permissão para acessar esta ficha"}),400
-                newEquipment = models.AttacksSpellcasting(characterSheet.Id)
+                newEquipment = models.Equipment(characterSheet.Id)
                 if('name' in data):
                     newEquipment.name= data['name']
                 if('description' in data):
@@ -802,7 +809,7 @@ def updateEquipment(equipmentId):
                 data = request.get_json()
                 userId = decode_auth_token(token)
 
-                equipment = models.Equipment.query.filter(models.EquipmentId==equipmentId).one()
+                equipment = models.Equipment.query.filter(models.Equipment.Id==equipmentId).one()
 
                 characterSheet = models.CharacterSheet.query.filter(models.CharacterSheet.Id==equipment.characterSheetId).one()
 
@@ -844,7 +851,7 @@ def deleteEquipment(equipmentId):
             token= token.replace("Bearer ","")
             userId = decode_auth_token(token)
 
-            equipment = models.Equipment.query.filter(models.EquipmentId==equipmentId).one()
+            equipment = models.Equipment.query.filter(models.Equipment.Id==equipmentId).one()
 
             characterSheet = models.CharacterSheet.query.filter(models.CharacterSheet.Id==equipment.characterSheetId).one()
 

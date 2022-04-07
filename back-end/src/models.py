@@ -8,7 +8,7 @@ db = SQLAlchemy()
 class AttacksSpellcasting(db.Model):
     __tablename__= 'attacksSpellcasting'
     Id = db.Column(db.Integer,nullable = False,primary_key=True)
-    characterSheetId= db.Column(db.Integer,db.ForeignKey('characterSheet.Id'))
+    characterSheetId= db.Column(db.Integer)
     name = db.Column(db.String,nullable = False)
     attackBonus = db.Column(db.Integer,nullable = False)
     damageType = db.Column(db.String)
@@ -26,10 +26,10 @@ class AttacksSpellcasting(db.Model):
 class CharacterSheet(db.Model):
     __tablename__= 'characterSheet'
     Id = db.Column(db.Integer,nullable=False,primary_key=True)
-    gameId = db.Column(db.Integer,db.ForeignKey('game.Id'))
+    gameId = db.Column(db.Integer)
     characterName = db.Column(db.String)
     vClass = db.Column(db.String)
-    race = (db.DateTime)
+    race = (db.String)
     level = db.Column(db.Integer)
     background = db.Column(db.String)
     playerName = db.Column(db.String)
@@ -38,12 +38,12 @@ class CharacterSheet(db.Model):
     bnSavingThrows = db.Column(db.String)
     bnProficiencyBonus = db.Column(db.Integer)
     bnInspiration = db.Column(db.Integer)
-    bnStrength: db.Column(db.Integer)
-    bnDexterity: db.Column(db.Integer)
-    bnConstituition: db.Column(db.Integer)
-    bnIntelligence: db.Column(db.Integer)
-    bnWisdom: db.Column(db.Integer)
-    bnCharisma: db.Column(db.Integer)
+    bnStrength= db.Column(db.Integer)
+    bnDexterity= db.Column(db.Integer)
+    bnConstituition= db.Column(db.Integer)
+    bnIntelligence= db.Column(db.Integer)
+    bnWisdom= db.Column(db.Integer)
+    bnCharisma= db.Column(db.Integer)
     skSkills = db.Column(db.String)
     skAcrobatics = db.Column(db.Integer)
     skAnimalHandling = db.Column(db.Integer)
@@ -90,17 +90,14 @@ class CharacterSheet(db.Model):
     stkFeaturesTraits = db.Column(db.String)
     createdAt = db.Column(db.DateTime)
     updatedAt = db.Column(db.DateTime)
-    playerCharacter = db.relationship('PlayerCharacter',backref = 'characterSheet',lazy = True)
-    equipments = db.relationship('Equipment',backref = 'characterSheet',lazy = True)
-    attacksSpellcasting = db.relationship('AttacksSpellcasting',backref = 'characterSheet',lazy = True)
 
-    def __init__ (self,game,characterName,vClass,race,background,playerName,alignment,level=0,experience=0,bnSavingThrows = '',bnProficiencyBonus = 0,bnInspiration = 0 ,bnStrength = 0,bnDexterity = 0,
+    def __init__ (self,gameId,characterName,vClass,race,background,playerName,alignment,level=0,experience=0,bnSavingThrows = '',bnProficiencyBonus = 0,bnInspiration = 0 ,bnStrength = 0,bnDexterity = 0,
     bnConstituition = 0,bnIntelligence = 0,bnWisdom = 0,bnCharisma = 0,skSkills = '',skAcrobatics = 0,skAnimalHandling = 0,skArcana = 0,skAthletics = 0,skDeception = 0,
     skHistory = 0,skInsight = 0,skIntimidation = 0,skInvestigation = 0,skMedicine = 0,skNature = 0,skPerception = 0,skPerformance = 0,skPersuasion = 0,
     skReligion = 0,skSleightOfHand = 0,skStealth = 0,skSurvival = 0,attStrength = 0,attModStrength = 0,attDexterity = 0,attModDexterity = 0,
-    attConstitution = 0,attModConstitution = 0,attIntelligence = 0,modIntelligence = 0,attWisdom = 0,attModWisdom = 0,attCharisma = 0,attModCharisma = 0,attPassiveWisdom = 0,armorClass = 0,attInitiative = 0,attSpeed = 0,
+    attConstitution = 0,attModConstitution = 0,attIntelligence = 0,attModIntelligence = 0,attWisdom = 0,attModWisdom = 0,attCharisma = 0,attModCharisma = 0,attPassiveWisdom = 0,attArmorClass = 0,attInitiative = 0,attSpeed = 0,
     attMaxLife = 0,attCurrentLife = 0,attLifeDice = '',stkPersonalityTraits = '',stkIdeals = '',stkBonds = '',stkFlaws = '',stkOtherProeficienciesLanguages = '',stkFeaturesTraits = ''):
-        self.game = game
+        self.gameId = gameId
         self.characterName = characterName
         self.vClass = vClass
         self.race = race
@@ -141,16 +138,16 @@ class CharacterSheet(db.Model):
         self.attModStrength = attModStrength
         self.attDexterity = attDexterity
         self.attModDexterity = attModDexterity
-        self.constitution = attConstitution
+        self.attConstitution = attConstitution
         self.attModConstitution = attModConstitution
         self.attIntelligence = attIntelligence
-        self.modIntelligence = modIntelligence
+        self.attModIntelligence = attModIntelligence
         self.attWisdom = attWisdom
         self.attModWisdom = attModWisdom
         self.attCharisma = attCharisma
         self.attModCharisma = attModCharisma
         self.attPassiveWisdom = attPassiveWisdom
-        self.armorClass = armorClass
+        self.attArmorClass = attArmorClass
         self.attInitiative = attInitiative
         self.attSpeed = attSpeed
         self.attMaxLife = attMaxLife
@@ -162,14 +159,14 @@ class CharacterSheet(db.Model):
         self.stkFlaws = stkFlaws
         self.stkOtherProeficienciesLanguages = stkOtherProeficienciesLanguages
         self.stkFeaturesTraits = stkFeaturesTraits
-        self.createdAt = datetime.datetime.utcnow
-        self.updatedAt = datetime.datetime.utcnow
+        self.createdAt = datetime.datetime.utcnow()
+        self.updatedAt = datetime.datetime.utcnow()
        
 
 class Equipment(db.Model):
     __tablename__= 'equipment'
     Id = db.Column(db.Integer,nullable = False,primary_key=True)
-    characterSheetId = db.Column(db.Integer,db.ForeignKey('characterSheet.Id'))
+    characterSheetId = db.Column(db.Integer)
     name = db.Column(db.String,nullable = False)
     description = db.Column(db.String)
     attunement = db.Column(db.String)
@@ -201,13 +198,11 @@ class Game(db.Model):
     __tablename__= 'game'
     Id = db.Column(db.Integer,nullable=False,primary_key=True)
     name = db.Column(db.String,nullable=False)
-    userId = db.Column(db.Integer,db.ForeignKey('user.Id'))
+    userId = db.Column(db.Integer)
     gameMode = db.Column(db.String,nullable=False)
     timer = db.Column(db.Time)
     createdAt = db.Column(db.DateTime)
     updatedAt = db.Column(db.DateTime)
-    gamePlayers = db.relationship('GamePlayers',backref = 'game',lazy = True)
-    characterSheet = db.relationship('CharacterSheet',backref = 'game',lazy = True)
 
     def __init__ (self,name,userId,gameMode = '0000000000000000' ,timer = None):
         self.name = name
@@ -222,8 +217,8 @@ class Game(db.Model):
 class GamePlayers(db.Model):
     __tablename__= 'gamePlayers'
     Id = db.Column(db.Integer,nullable=False,primary_key=True)
-    userId = db.Column(db.Integer,db.ForeignKey('user.Id'))
-    gameId = db.Column(db.Integer,db.ForeignKey('game.Id'))
+    userId = db.Column(db.Integer)
+    gameId = db.Column(db.Integer)
     createdAt = db.Column(db.DateTime)
     updatedAt = db.Column(db.DateTime)
     
@@ -240,8 +235,8 @@ class GamePlayers(db.Model):
 class Message(db.Model):
     __tablename__= 'message'
     Id = db.Column(db.Integer,nullable=False,primary_key=True)
-    userId= db.Column(db.Integer,db.ForeignKey('user.Id'))
-    gameId= db.Column(db.Integer,db.ForeignKey('game.Id'))
+    userId= db.Column(db.Integer)
+    gameId= db.Column(db.Integer)
     content = db.Column(db.String)
     sendedAt = (db.DateTime)
    
@@ -255,8 +250,8 @@ class Message(db.Model):
 class PlayerCharacter(db.Model):
     __tablename__= 'playerCharacter'
     Id = db.Column(db.Integer,nullable=False,primary_key=True)
-    playerId= db.Column(db.Integer,db.ForeignKey('gamePlayers.Id'))
-    characterSheetId= db.Column(db.Integer,db.ForeignKey('characterSheet.Id'))
+    playerId= db.Column(db.Integer)
+    characterSheetId= db.Column(db.Integer)
     createdAt = (db.DateTime)
     updatedAt = (db.DateTime)
    
@@ -278,9 +273,6 @@ class User(db.Model):
     birthDate = db.Column(db.Date)
     createdAt = db.Column(db.DateTime)
     updatedAt = db.Column(db.DateTime)
-    games = db.relationship('Game',backref = 'user',lazy = True)
-    gamePlayers = db.relationship('GamePlayers',backref = 'user',lazy = True)
-    message = db.relationship('Message',backref = 'user',lazy = True)
     
     def __init__ (self,userName,email,password,biography = '',birthDate = None):
         self.userName = userName
