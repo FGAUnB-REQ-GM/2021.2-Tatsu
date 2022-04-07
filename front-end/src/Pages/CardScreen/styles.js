@@ -74,7 +74,7 @@ export const StyledButtonLogin = styled.div`
 
 export const StyledYellowRectangle = styled.div`
   width: 60%;
-  overflow-y: scroll;
+  overflow-y: auto;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -87,7 +87,7 @@ export const StyledYellowRectangle = styled.div`
 export const StyledYellowRectangleShift = styled.div`
   position: absolute;
   width: 33rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   left: 90rem;
   height: 18rem;
   align-items: center;
@@ -113,7 +113,7 @@ export const StyledYellowRectangleShift = styled.div`
 
 export const StyledYellowRectangleGame = styled.div`
   position: absolute;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 46rem;
   left: 90rem;
   height: 34.5rem;

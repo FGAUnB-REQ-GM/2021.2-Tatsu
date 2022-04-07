@@ -11,6 +11,10 @@ class Files extends React.Component {
     super(props);
     this.state = {
     };
+    let userToken=localStorage.getItem('userToken')
+    if(!userToken){
+      window.location.href = '/'; 
+    }
   }
 
   render() {

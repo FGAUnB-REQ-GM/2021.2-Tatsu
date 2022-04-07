@@ -5,6 +5,7 @@ import Logo from "../../Assets/logo.svg";
 import { FormLogin, StyledDiv } from "./styles";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import login from "../../Services/login"
 
 class LoginScreen extends React.Component {
   constructor(props) {
@@ -13,6 +14,11 @@ class LoginScreen extends React.Component {
       email: "",
       password: "",
     };
+    let userToken=localStorage.getItem('userToken')
+    if(userToken){
+      window.location.href = '/files'; 
+    }
+    
   }
 
   setPassword(newPass) {
@@ -21,6 +27,14 @@ class LoginScreen extends React.Component {
 
   setEmail(newMail) {
     this.setState({ email: newMail });
+  }
+
+  async handleLogin(){
+    await login(this.state.email, this.state.password);
+    let userToken=localStorage.getItem('userToken')
+    if(userToken){
+      window.location.reload(false);
+    }
   }
 
   render() {
@@ -46,7 +60,7 @@ class LoginScreen extends React.Component {
               onChangeInput={(event) => this.setPassword(event.target.value)}
             ></LoginInput>
             <StyledDiv>
-              <MainButton title={"ENTRAR"} />
+              <MainButton title={"ENTRAR"} onClick={()=>this.handleLogin()}/>
               <Link link to="/register">
                 Não possui conta?
               </Link>
