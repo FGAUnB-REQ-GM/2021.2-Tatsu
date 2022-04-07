@@ -16,11 +16,11 @@ const Routes = () => (
     <Switch>
       <Route exact path="/" component={() => <LoginScreen />} />
       <Route exact path="/register" component={() => <RegisterScreen />} />
-      <Route exact path="/forget-password" component={() => <ForgetPasswordScreen />} />
-      <Route exact path="/change-password" component={() => <ChangePassowordScreen />} />
-      <Route exact path="/edit-profile" component={() => <EditProfileScreen />} />
+      <Route exact path="/forgetPassword" component={() => <ForgetPasswordScreen />} />
+      <Route exact path="/changePassword" component={() => <ChangePassowordScreen />} />
+      <Route exact path="/editProfile" component={() => <EditProfileScreen />} />
       <Route exact path="/card" component={() => <CardScreen />} />
-      <Route exact path="/Files" component={() => <Files />} />
+      <Route exact path="/files" component={() => <Files />} />
 
     </Switch>
   </BrowserRouter>

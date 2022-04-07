@@ -14,6 +14,11 @@ class RegisterScreen extends React.Component {
       password: "",
       n_password: "",
     };
+    let userToken=localStorage.getItem('userToken')
+    if(!userToken){
+      window.location.href = '/'; 
+    }
+  
   }
 
   setUser(newUser) {
