@@ -19,12 +19,14 @@ nav:
   - Visão Unidade 1: "visao.md"
   - Visão Unidade 2: "visao2.md"
   - Visão Unidade 3: "visao3.md"
+  - Visão Unidade 4: "visao4.md"
   - Apresentação do Projeto: "apresentacao.md"
   - Requisitos Iniciais: "requisitos_iniciais.md"
   - Kanban: "kanban.md"
   - Canvas MVP: "canvasMVP.md"
   - PBB: "pbb.md"
   - BDD: "bdd.md"
+  - USM: "userStoryMap.md"
   
 markdown_extensions:
   - attr_list
