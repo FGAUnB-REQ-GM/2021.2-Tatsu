@@ -14,6 +14,10 @@ const login = async (username, password) => {
     if (response.data.token) {
       localStorage.setItem('userToken', `Bearer ${response.data.token}`);
       localStorage.setItem('userTokenExpiration', response.data.expiration);
+      alert("Logado com sucesso!!!")
+    }
+    else{
+      alert("Não foi possível confirmar o usuário!")
     }
     return response.data;
   } catch (error) {
