@@ -3,8 +3,8 @@
 ## Histórico de Versão
 |    Data    | Versão | Autor |
 | :--------: | :----: | :-----:|
-| 21/02/2022| 1.0 |Primeira Versão do Kanban| Integrantes do grupo Tatsu|
-| 03/04/2002| 2.0 |Segunda Versão do nosso Kanban e Mudança de Plataforma|
+| 21/02/2022| 1.0 |Integrantes do grupo Tatsu|
+| 03/04/2002| 2.0 |Integrantes do grupo Tatsu|
 
 ### Versão 1
 <img src="../Assets/Images/kanban.png" alt="Kanban">
