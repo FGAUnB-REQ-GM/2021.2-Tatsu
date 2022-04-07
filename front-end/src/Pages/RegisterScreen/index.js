@@ -4,6 +4,7 @@ import MainButton from "../../Components/MainButton";
 import Logo from "../../Assets/logo.svg";
 import { FormRegister, StyledDiv } from "./styles";
 import { withRouter } from "react-router";
+import register from "../../Services/register";
 
 class RegisterScreen extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class RegisterScreen extends React.Component {
       user: "",
       email: "",
       password: "",
-      n_password: "",
+      nPassword: "",
     };
     let userToken=localStorage.getItem('userToken')
     if(userToken){
@@ -28,12 +29,27 @@ class RegisterScreen extends React.Component {
     this.setState({ email: newMail });
   }
 
-  setPassword(newPass) {
-    this.setState({ password: newPass });
+  setPassword(newPassword) {
+    this.setState({ password: newPassword });
   }
 
-  setN_password(newN_password) {
-    this.setState({ n_password: newN_password });
+  setNPassword(newNPassword) {
+    this.setState({ nPassword: newNPassword });
+  }
+
+  async handleRegisterButton(){
+    if(this.state.password!="" && this.state.email!="" && this.state.user!=""){
+      if(this.state.nPassword===this.state.password){
+        await register(this.state.user,this.state.email,this.state.password);
+        window.location.reload(false);
+      }
+      else{
+        alert("As senhas não conferem!");
+      }
+    }
+    else{
+      alert("Os campos não podem ser deixados em branco!")
+    }
   }
 
   render() {
@@ -72,8 +88,8 @@ class RegisterScreen extends React.Component {
               nameInput="n_password"
               placeholderInput="Repita a senha"
               inputType="password"
-              valueInput={this.state.n_password}
-              onChangeInput={(event) => this.setN_password(event.target.value)}
+              valueInput={this.state.nPassword}
+              onChangeInput={(event) => this.setNPassword(event.target.value)}
             ></LoginInput>
             <StyledDiv>
               <MainButton
@@ -81,7 +97,7 @@ class RegisterScreen extends React.Component {
                 type="button"
                 onClick={() => window.history.back()}
               />
-              <MainButton title={"Cadastrar"} />
+              <MainButton title={"Cadastrar"} onClick={()=>this.handleRegisterButton()}/>
             </StyledDiv>
           </form>
         </FormRegister>
