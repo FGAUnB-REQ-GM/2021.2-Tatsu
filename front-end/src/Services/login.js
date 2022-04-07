@@ -21,6 +21,7 @@ const login = async (username, password) => {
     }
     return response.data;
   } catch (error) {
+    alert("Não foi possível confirmar o usuário!")
     return false;
   }
 };
