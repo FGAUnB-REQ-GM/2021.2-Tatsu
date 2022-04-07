@@ -13,3 +13,4 @@ frontend-up:
 services-down:
 	docker-compose -p front-end -f front-end/docker-compose.yml down
 	docker-compose -p back-end -f back-end/docker-compose.yml down
+	
