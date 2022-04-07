@@ -5,18 +5,27 @@ import Logo from "../../Assets/logo.svg";
 import { FilesBox, FilesBody, Box, StyledDiv } from "./styles";
 import { withRouter } from "react-router";
 import FileInfo from "../../Components/FileInfo";
+import readGames from "../../Services/readGames";
 
 class Files extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      gameList:[],
+      userToken:""
     };
-    let userToken=localStorage.getItem('userToken')
-    if(!userToken){
+    this.state.userToken=localStorage.getItem('userToken')
+    if(!this.state.userToken){
       window.location.href = '/'; 
     }
+
+    this.getGameList();
   }
 
+  async getGameList(){
+    let gameList= await readGames(this.state.userToken);
+    this.setState({gameList: gameList})
+  }
   render() {
     return (
       <>
@@ -29,22 +38,12 @@ class Files extends React.Component {
                 <label id="l1">Nome</label>
                 <label id="l2">Autor</label>
                 <label id="l3">Criação</label>
-                <label id="l4">Informação</label>
               </div>
+              {console.log(this.state.gameList)}
               <div id="fileScroll">
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
-                <FileInfo nameFile={"Jogo 1"} author={"João"} date="12/02/2022" info={"https://www.google.com.br"} />
+                {(this.state.gameList.length>0)&&(this.state.gameList.map((game, index)=>(
+                  <FileInfo nameFile={game.name} author={game.author} date={game.createdAt}/>
+                )))}
               </div>
             </Box>
             </FilesBox>
