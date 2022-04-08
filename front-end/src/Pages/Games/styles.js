@@ -3,20 +3,15 @@ export const styles = {};
 
 export const FilesBody = styled.div`
   background-color: #14142c;
-  height: 90vh;
+  height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
-
-  img {
-    width: 23rem;
-    height: 20rem;
-  }
 `;
 
 export const FilesBox = styled.div`
   height: 100vh;
-  width: 90vw;
+  width: 80vw;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -50,23 +45,25 @@ export const Box = styled.div`
     color: #FFFFFF;
     font-weight: bold;
     font-size: 1.25rem;
+    text-align:center;
   }
   
-  #l2{
-    margin-left: 6.5rem;
+  #l1 {
+    display:inline-block;
+    width: 20vw;
   }
 
-  #l1 {
-    margin-left: 3.5rem;
+  #l2{
+    display:inline-block;
+    width: 13vw;
   }
+
 
   #l3 {
-    margin-left: 6rem;
+    display:inline-block;
+    width: 10vw;
   }
 
-  #l4 {
-    margin-left: 2.5rem;
-  }
 
   #fileScroll {
     height: 84%;
@@ -95,13 +92,10 @@ export const Box = styled.div`
 
 
 export const StyledDiv = styled.div`
-  background-color: #14142c;
-  height: 5vw;
-  width: 100vw;
   cursor: pointer;
-  
-
-  font-family: Roboto;
+  position:fixed;
+  right:3vw;
+  bottom:3vh;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;

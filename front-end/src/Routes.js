@@ -7,7 +7,8 @@ import ForgetPasswordScreen from "./Pages/ForgetPasswordScreen";
 import ChangePassowordScreen from "./Pages/ChangePasswordScreen";
 import EditProfileScreen from "./Pages/EditProfileScreen";
 import CardScreen from "./Pages/CardScreen";
-import Files from "./Pages/Files";
+import Games from "./Pages/Games";
+import CreateGame from "./Pages/CreateGame";
 
 
 
@@ -20,7 +21,8 @@ const Routes = () => (
       <Route exact path="/changePassword" component={() => <ChangePassowordScreen />} />
       <Route exact path="/editProfile" component={() => <EditProfileScreen />} />
       <Route exact path="/card" component={() => <CardScreen />} />
-      <Route exact path="/files" component={() => <Files />} />
+      <Route exact path="/home" component={() => <Games />} />
+      <Route exact path="/createGame" component={() => <CreateGame />} />
 
     </Switch>
   </BrowserRouter>

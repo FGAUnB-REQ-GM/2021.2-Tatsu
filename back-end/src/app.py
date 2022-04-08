@@ -158,7 +158,7 @@ def readGames():
                     "id":game.Id,
                     "name":game.name,
                     "gameMode":game.gameMode,
-                    "createdAt":game.createdAt,
+                    "createdAt":game.createdAt.strftime("%d/%m/%Y %H:%M:%S"),
                     "author":user.userName,
                 })
 

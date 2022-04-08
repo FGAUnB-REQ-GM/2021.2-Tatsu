@@ -11,6 +11,7 @@ export const FileRow = styled.div`
   border-radius: 1rem;
   margin-top: 1rem;
   margin-left: 2rem;
+  padding-left:0.5vw;
 
   label {
     color: black;
@@ -22,15 +23,31 @@ export const FileRow = styled.div`
   }
 
   #label1, #label2, #label3 {
-    width: 20%;
     text-align: center;
+  }
+  
+  #label1{
+    display:inline-block;
+    width: 20vw;
+  }
+
+  #label2{
+    display:inline-block;
+    width: 13vw;
+  }
+
+  #label3{
+    display:inline-block;
+    width: 10vw;
   }
 
   #button1 {
-    margin-left: 30%;
+    margin-left:auto;
+    margin-right: 0.5rem;
   }
 
   #button2 {
-    margin-left: 0.5rem;
+    margin-right: 2rem;
   }
 `;
+

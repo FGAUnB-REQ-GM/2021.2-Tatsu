@@ -43,7 +43,6 @@ export const StyledDiv = styled.div`
 
   cursor: pointer;
 
-  font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
