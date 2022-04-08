@@ -9,19 +9,20 @@ import FileInfo from "../../Components/FileInfo";
 import readGames from "../../Services/readGames";
 import DeleteModal from "../../Components/DeleteModal";
 import deleteGame from "../../Services/deleteGame";
+import readGame from "../../Services/readGame";
+import { useParams } from 'react-router-dom'
 
 
-const Games = ()=>{
+const Game = ()=>{
 
-  const [gameList,setGameList] = useState([]);
+  const [charactersList,setCharactersList] = useState([]);
   const [token,setToken] = useState("");
   const [deleteModalVisible,setDeleteModalVisible]=useState(false);
   const [deleteGameId,setDeleteGameId]=useState(-1);
+  const [game,setGame]=useState({});
+  const {gameId} = useParams();
 
-  const getGameList = async()=>{
-    let gameList= await readGames(token);
-    setGameList(gameList)
-  }
+
 
   const handleDeleteGame = async()=>{
     await deleteGame(token,deleteGameId);
@@ -38,43 +39,46 @@ const Games = ()=>{
     setDeleteGameId(game.id);
   }
 
-
   useEffect(()=>{
-
-    let token=localStorage.getItem('userToken')
-    if(!token){
-      window.location.href = '/'; 
-    }
-
+    let token = localStorage.getItem("userToken");
     setToken(token);
-  },[]);
-
+    
+  },[])
 
   useEffect(()=>{
-    getGameList();
-  },[token]);
+    setGameInfo();
+  },[token])
+
+
+  const setGameInfo=async()=>{
+    let game= await readGame(token,gameId);
+    setGame(game);
+    if(game && game.charactersSheet){
+      setCharactersList(game.charactersSheet);
+    }
+  }
 
   return (
     <>
-      {(deleteModalVisible)&&(<DeleteModal onConfirm={handleDeleteGame} onClose={closeDeleteModal} title={"o ficheiro"}></DeleteModal>)}
+      {(deleteModalVisible)&&(<DeleteModal onConfirm={handleDeleteGame} onClose={closeDeleteModal} title={"a ficha"}></DeleteModal>)}
       <FilesBody>
           <SideMenu></SideMenu>
           <FilesBox>
-            <label id="l0">Ficheiros</label>
+            <label id="l0">{game.name}</label>
             <Box>
               <div id="colName">
-                <label id="l1">Nome</label>
-                <label id="l2">Autor</label>
-                <label id="l3">Criação</label>
+                <label id="l1">Nome do personagem</label>
+                <label id="l2">Nome do jogador</label>
+                <label id="l3">Vida</label>
               </div>
               <div id="fileScroll">
-                {(gameList.length>0)&&(gameList.map((game, index)=>(
-                  <FileInfo nameFile={game.name} author={game.author} date={game.createdAt} onPlay={()=>{window.location.href="/game/"+game.id}} onEdit={()=>{window.location.href="/editGame/"+game.id}} onDelete={()=>{openDeleteModal(game)}}/>
+                {(charactersList.length>0)&&(charactersList.map((character, index)=>(
+                  <FileInfo nameFile={character.characterName} author={character.playerName} date={character.life}  onDelete={()=>{openDeleteModal(character)}}/>
                 )))}
               </div>
             </Box>
             </FilesBox>
-          <StyledDiv onClick={()=>{window.location.href="/createGame"}}>
+          <StyledDiv onClick={()=>{window.location.href="/createCharacter"}}>
             <MainButton title={"+"} />
           </StyledDiv>
       </FilesBody>
@@ -83,4 +87,4 @@ const Games = ()=>{
 }
 
 
-export default Games;
+export default Game;

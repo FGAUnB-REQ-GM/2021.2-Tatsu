@@ -47,6 +47,12 @@ export const FileRow = styled.div`
   }
 
   #button2 {
+    margin-left:0px;
+    margin-right: 0.5rem;
+  }
+
+  #button3 {
+    margin-left:0px;
     margin-right: 2rem;
   }
 `;
