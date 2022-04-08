@@ -49,7 +49,7 @@ const Games = ()=>{
               </div>
               <div id="fileScroll">
                 {(gameList.length>0)&&(gameList.map((game, index)=>(
-                  <FileInfo nameFile={game.name} author={game.author} date={game.createdAt}/>
+                  <FileInfo nameFile={game.name} author={game.author} date={game.createdAt} onClick1={()=>{window.location.href="/editGame/"+game.id}}/>
                 )))}
               </div>
             </Box>
