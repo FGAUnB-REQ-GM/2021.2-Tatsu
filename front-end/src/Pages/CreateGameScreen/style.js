@@ -30,7 +30,7 @@ export const DivInput = styled.input`
   line-height: 3rem;
   height: 2.5rem;
   border-radius: 15px;
-  margin-: 0.5rem 0rem;
+  margin-top: 0.5rem 0rem;
   padding-left: 0.5rem;
   background: #ffff;
   margin-bottom:3vh;
