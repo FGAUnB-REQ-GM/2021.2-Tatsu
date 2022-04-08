@@ -17,7 +17,7 @@ export const Cards = styled.div`
     color: ${colors.white};
     font-weight: bold;
     margin-bottom: 2rem;
-    font-family: "Roboto", sans-serif;
+    font-family:  sans-serif;
     font-size: 36px;
   }
 

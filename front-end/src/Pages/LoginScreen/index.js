@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LoginInput from "../../Components/LoginInput/index";
 import MainButton from "../../Components/MainButton";
 import Logo from "../../Assets/logo.svg";
@@ -7,69 +7,58 @@ import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import login from "../../Services/login"
 
-class LoginScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-    };
+
+const LoginScreen=()=>{
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
+
+  useEffect(()=>{
     let userToken=localStorage.getItem('userToken')
     if(userToken){
-      window.location.href = '/files'; 
+      window.location.href = '/home'; 
     }
-    
-  }
+  })
 
-  setPassword(newPass) {
-    this.setState({ password: newPass });
-  }
-
-  setEmail(newMail) {
-    this.setState({ email: newMail });
-  }
-
-  async handleLogin(){
-    await login(this.state.email, this.state.password);
+  
+  const handleLogin=async ()=>{
+    await login(email, password);
     let userToken=localStorage.getItem('userToken')
     if(userToken){
       window.location.reload(false);
     }
   }
 
-  render() {
-    return (
-      <>
-        <FormLogin>
-          <form>
-            <img src={Logo} alt="Logo" />
-            <LoginInput
-              idInput="email"
-              nameInput="email"
-              placeholderInput="Usuário"
-              inputType="email"
-              valueInput={this.state.email}
-              onChangeInput={(event) => this.setEmail(event.target.value)}
-            ></LoginInput>
-            <LoginInput
-              idInput="password"
-              nameInput="password"
-              placeholderInput="Senha"
-              inputType="password"
-              valueInput={this.state.password}
-              onChangeInput={(event) => this.setPassword(event.target.value)}
-            ></LoginInput>
-            <StyledDiv>
-              <MainButton title={"ENTRAR"} onClick={()=>this.handleLogin()}/>
-              <Link link to="/register">
-                Não possui conta?
-              </Link>
-            </StyledDiv>
-          </form>
-        </FormLogin>
-      </>
-    );
-  }
+  return (
+    <>
+      <FormLogin>
+        <form>
+          <img src={Logo} alt="Logo" />
+          <LoginInput
+            idInput="email"
+            nameInput="email"
+            placeholderInput="Usuário"
+            inputType="email"
+            valueInput={email}
+            onChangeInput={(event) => setEmail(event.target.value)}
+          ></LoginInput>
+          <LoginInput
+            idInput="password"
+            nameInput="password"
+            placeholderInput="Senha"
+            inputType="password"
+            valueInput={password}
+            onChangeInput={(event) => setPassword(event.target.value)}
+          ></LoginInput>
+          <StyledDiv>
+            <MainButton title={"ENTRAR"} onClick={()=>handleLogin()}/>
+            <Link link to="/register">
+              Não possui conta?
+            </Link>
+          </StyledDiv>
+        </form>
+      </FormLogin>
+    </>
+  );
 }
 
-export default withRouter(LoginScreen);
+export default LoginScreen;

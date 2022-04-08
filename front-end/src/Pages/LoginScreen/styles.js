@@ -34,7 +34,6 @@ export const StyledDiv = styled.div`
 
   cursor: pointer;
 
-  font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -44,6 +43,5 @@ export const StyledDiv = styled.div`
   button {
     height: 3rem;
     margin: 1rem;
-    font-family: Roboto;
   }
 `;

@@ -9,7 +9,6 @@ export const colors = {
 };
 
 export const fonts = {
-  fontFamily: "Roboto",
   sizeXXlg: "36px",
   sizeXlg: "24px",
   sizeLg: "18px",

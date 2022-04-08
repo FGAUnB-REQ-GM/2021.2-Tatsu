@@ -10,7 +10,6 @@ export const StyledButton = styled.button`
     color: #ffffff;
     cursor: pointer;
 
-    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
