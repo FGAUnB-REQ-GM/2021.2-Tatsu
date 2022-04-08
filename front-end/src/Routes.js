@@ -9,6 +9,7 @@ import EditProfileScreen from "./Pages/EditProfileScreen";
 import CardScreen from "./Pages/CardScreen";
 import Games from "./Pages/Games";
 import CreateGame from "./Pages/CreateGame";
+import EditGame from "./Pages/EditGame";
 
 
 
@@ -22,7 +23,8 @@ const Routes = () => (
       <Route exact path="/editProfile" component={() => <EditProfileScreen />} />
       <Route exact path="/card" component={() => <CardScreen />} />
       <Route exact path="/home" component={() => <Games />} />
-      <Route exact path="/createGame" component={() => <CreateGame />} />
+      <Route exact path="/createGame" component={() => <CreateGame />}/>
+      <Route path={"/editGame/:gameId"} component={()=><EditGame></EditGame>}/>
 
     </Switch>
   </BrowserRouter>
