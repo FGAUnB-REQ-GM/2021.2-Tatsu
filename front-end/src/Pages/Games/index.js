@@ -7,16 +7,35 @@ import { FilesBox, FilesBody, Box, StyledDiv } from "./styles";
 import { withRouter } from "react-router";
 import FileInfo from "../../Components/FileInfo";
 import readGames from "../../Services/readGames";
+import DeleteModal from "../../Components/DeleteModal";
+import deleteGame from "../../Services/deleteGame";
 
 
 const Games = ()=>{
 
   const [gameList,setGameList] = useState([]);
   const [token,setToken] = useState("");
+  const [deleteModalVisible,setDeleteModalVisible]=useState(false);
+  const [deleteGameId,setDeleteGameId]=useState(-1);
 
   const getGameList = async()=>{
     let gameList= await readGames(token);
     setGameList(gameList)
+  }
+
+  const handleDeleteGame = async()=>{
+    await deleteGame(token,deleteGameId);
+    window.location.reload(false);
+  }
+
+
+  const closeDeleteModal=()=>{
+    setDeleteModalVisible(false);
+  }
+
+  const openDeleteModal=(game)=>{
+    setDeleteModalVisible(true);
+    setDeleteGameId(game.id);
   }
 
 
@@ -37,6 +56,7 @@ const Games = ()=>{
 
   return (
     <>
+      {(deleteModalVisible)&&(<DeleteModal onConfirm={handleDeleteGame} onClose={closeDeleteModal} title={"o ficheiro"}></DeleteModal>)}
       <FilesBody>
           <SideMenu></SideMenu>
           <FilesBox>
@@ -49,7 +69,7 @@ const Games = ()=>{
               </div>
               <div id="fileScroll">
                 {(gameList.length>0)&&(gameList.map((game, index)=>(
-                  <FileInfo nameFile={game.name} author={game.author} date={game.createdAt} onClick1={()=>{window.location.href="/editGame/"+game.id}}/>
+                  <FileInfo nameFile={game.name} author={game.author} date={game.createdAt} onClick1={()=>{window.location.href="/editGame/"+game.id}} onClick2={()=>{openDeleteModal(game)}}/>
                 )))}
               </div>
             </Box>
