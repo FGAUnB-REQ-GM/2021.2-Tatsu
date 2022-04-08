@@ -191,6 +191,7 @@ def readGame(gameId):
                 "playerName":characterSheet.playerName,
                 "alignment":characterSheet.alignment,
                 "experience":characterSheet.experience,
+                "life":characterSheet.attCurrentLife,
             })
         results={
             "id":game.Id,

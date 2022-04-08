@@ -8,6 +8,7 @@ import ChangePassowordScreen from "./Pages/ChangePasswordScreen";
 import EditProfileScreen from "./Pages/EditProfileScreen";
 import CardScreen from "./Pages/CardScreen";
 import Games from "./Pages/Games";
+import Game from "./Pages/Game";
 import CreateGame from "./Pages/CreateGame";
 import EditGame from "./Pages/EditGame";
 
@@ -24,8 +25,8 @@ const Routes = () => (
       <Route exact path="/card" component={() => <CardScreen />} />
       <Route exact path="/home" component={() => <Games />} />
       <Route exact path="/createGame" component={() => <CreateGame />}/>
-      <Route path={"/editGame/:gameId"} component={()=><EditGame></EditGame>}/>
-
+      <Route path={"/editGame/:gameId"} component={()=><EditGame/>}/>
+      <Route path={"/game/:gameId"} component={()=><Game/>}/>
     </Switch>
   </BrowserRouter>
 );
