@@ -7,7 +7,7 @@ O principal objetivo do USM é ter um backlog estruturado visualmente facilitand
 <br>
 <a href="https://miro.com/app/board/uXjVONjoEoU=/">Link para o nosso USM completo</a>
 
-Baseado no USM foi realizado com um novo backlog refatorado:
+Baseado no USM foi realizado um novo backlog refatorado:
 
 <img src="../Assets/Images/backlog.png" alt="backlog">
 <br>

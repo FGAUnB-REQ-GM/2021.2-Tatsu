@@ -210,7 +210,7 @@ Nessa terceira etapa aprendemos sobre a Organização dos Requisitos Agéis e co
 
 ### 5.4 Unidade 4
 
-Essa etapa foi a mais trabalhosa para o grupo pois foi necessário refatorar vários trabalhos realizados(Backlog, Documentação do projeto, Sprint planing, Kanban, MVP 1) tambem foi realizado a criação do User Story Mapping e a entrega do nosso MVP 1.
+Essa etapa foi a mais trabalhosa para o grupo pois foi necessário refatorar vários trabalhos realizados(Backlog, Documentação do projeto, Sprint planing, Kanban, MVP 1) tambem foi realizado a criação do User Story Mapping, critérios de aceitação das histórias de usuários criadas e a entrega do nosso MVP 1.
 
 ## 6 Referências Bibliográficas
 
