@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 
 services: 
   db: 
@@ -19,7 +19,7 @@ services:
     volumes:
       - ./src/:/usr/src/app/
     ports:
-      - '5050:5050'
+      - '80:5050'
     depends_on: 
       - db
 

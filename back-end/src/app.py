@@ -35,20 +35,20 @@ db.init_app(app)
 @app.route("/register", methods=["POST"])
 def createUser():
     if request.is_json:
-        try:
-            data = request.get_json()
-            newUser = models.User(userName=data['username'],email=data["email"], password=generate_password_hash(data['password']))
-            if('biography' in data):
-                newUser.biography= data['biography']
-            if('birthDate' in data):
-                newUser.birthDate= data['birthDate']
-            db.session.add(newUser)
-            db.session.commit()
-            token = encode_auth_token(newUser.Id)
-            token=token.decode('utf-8')
-            return jsonify({"message": f"O usuário {newUser.userName} foi criado com sucesso.","token": f"{token}",'expiration': f"{datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)}"}), 200
-        except Exception:
-            return jsonify({"error": "Não foi possível criar um usuário"}),400
+        # try:
+        data = request.get_json()
+        newUser = models.User(userName=data['username'],email=data["email"], password=generate_password_hash(data['password']))
+        if('biography' in data):
+            newUser.biography= data['biography']
+        if('birthDate' in data):
+            newUser.birthDate= data['birthDate']
+        db.session.add(newUser)
+        db.session.commit()
+        token = encode_auth_token(newUser.Id)
+        token=token.decode('utf-8')
+        return jsonify({"message": f"O usuário {newUser.userName} foi criado com sucesso.","token": f"{token}",'expiration': f"{datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)}"}), 200
+        #except Exception:
+        #    return jsonify({"error": "Não foi possível criar um usuário"}),400
     else:
         return jsonify({"error": "A requisição precisa está no formato JSON"}),400
 
