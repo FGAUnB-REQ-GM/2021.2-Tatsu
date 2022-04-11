@@ -11,7 +11,8 @@ import Games from "./Pages/Games";
 import Game from "./Pages/Game";
 import CreateGame from "./Pages/CreateGameScreen";
 import EditGame from "./Pages/EditGame";
-import CreateCard from "./Pages/CreateCard";
+import CreateCharacter from "./Pages/CreateCharacter"
+import UpdateCharacter from "./Pages/UpdateCharacter";
 
 
 
@@ -28,8 +29,8 @@ const Routes = () => (
       <Route exact path="/createGame" component={() => <CreateGame />}/>
       <Route path={"/editGame/:gameId"} component={()=><EditGame/>}/>
       <Route path={"/game/:gameId"} component={()=><Game/>}/>
-      <Route path={"/createCard"} component={() => <CreateCard/>}/>
-      <Route path={"/editCard"} component={() => <CreateCard/>}/>
+      <Route path={"/createCharacter/:gameId"} component={() => <CreateCharacter/>}/>
+      <Route path={"/character/:characterId"} component={() => <UpdateCharacter/>}/>
     </Switch>
   </BrowserRouter>
 );

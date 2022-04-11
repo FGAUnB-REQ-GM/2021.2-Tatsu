@@ -2,15 +2,12 @@ import React, { useEffect, useState } from "react";
 import { VscAccount } from "react-icons/vsc";
 import MainButton from "../../Components/MainButton";
 import SideMenu from "../../Components/SideMenu";
-import Logo from "../../Assets/logo.svg";
 import { FilesBox, FilesBody, Box, StyledDiv } from "./styles";
-import { withRouter } from "react-router";
 import FileInfo from "../../Components/FileInfo";
-import readGames from "../../Services/readGames";
 import DeleteModal from "../../Components/DeleteModal";
-import deleteGame from "../../Services/deleteGame";
 import readGame from "../../Services/readGame";
 import { useParams } from 'react-router-dom'
+import deleteCharacter from "../../Services/deleteCharacter";
 
 
 const Game = ()=>{
@@ -18,14 +15,18 @@ const Game = ()=>{
   const [charactersList,setCharactersList] = useState([]);
   const [token,setToken] = useState("");
   const [deleteModalVisible,setDeleteModalVisible]=useState(false);
-  const [deleteGameId,setDeleteGameId]=useState(-1);
+  const [deleteCharacterId,setDeleteCharacterId]=useState(-1);
   const [game,setGame]=useState({});
   const {gameId} = useParams();
 
 
 
-  const handleDeleteGame = async()=>{
-    await deleteGame(token,deleteGameId);
+  const redirectToCharacter = (characterId)=>{
+    window.location.href="/character/"+characterId;
+  }
+
+  const handleDeleteCharacter = async()=>{
+    await deleteCharacter(token,deleteCharacterId);
     window.location.reload(false);
   }
 
@@ -34,9 +35,9 @@ const Game = ()=>{
     setDeleteModalVisible(false);
   }
 
-  const openDeleteModal=(game)=>{
+  const openDeleteModal=(character)=>{
     setDeleteModalVisible(true);
-    setDeleteGameId(game.id);
+    setDeleteCharacterId(character.id);
   }
 
   useEffect(()=>{
@@ -60,7 +61,7 @@ const Game = ()=>{
 
   return (
     <>
-      {(deleteModalVisible)&&(<DeleteModal onConfirm={handleDeleteGame} onClose={closeDeleteModal} title={"a ficha"}></DeleteModal>)}
+      {(deleteModalVisible)&&(<DeleteModal onConfirm={handleDeleteCharacter} onClose={closeDeleteModal} title={"a ficha"}></DeleteModal>)}
       <FilesBody>
           <SideMenu></SideMenu>
           <FilesBox>
@@ -73,12 +74,12 @@ const Game = ()=>{
               </div>
               <div id="fileScroll">
                 {(charactersList.length>0)&&(charactersList.map((character, index)=>(
-                  <FileInfo nameFile={character.characterName} author={character.playerName} date={character.life}  onDelete={()=>{openDeleteModal(character)}}/>
+                  <FileInfo nameFile={character.characterName} author={character.playerName} date={character.life} onPlay={()=>{redirectToCharacter(character.id)}} onEdit={()=>{redirectToCharacter(character.id)}}  onDelete={()=>{openDeleteModal(character)}}/>
                 )))}
               </div>
             </Box>
             </FilesBox>
-          <StyledDiv onClick={()=>{window.location.href="/createCharacter"}}>
+          <StyledDiv onClick={()=>{window.location.href="/createCharacter/"+gameId}}>
             <MainButton title={"+"} />
           </StyledDiv>
       </FilesBody>

@@ -3,8 +3,8 @@ import LoginInput from "../../Components/LoginInput/index";
 import MainButton from "../../Components/MainButton";
 import Logo from "../../Assets/logo.svg";
 import { FormRegister, StyledDiv } from "./styles";
-import { withRouter } from "react-router";
 import register from "../../Services/register";
+
 
 
 const RegisterScreen = ()=>{
@@ -27,8 +27,9 @@ const RegisterScreen = ()=>{
   const handleRegisterButton=async ()=>{
     if(password!=="" && email!=="" && user!==""){
       if(newPassword===password){
-        await register(user,email,password);
-        window.location.reload(false);
+        let vRegister = await register(user,email,password);
+        if(vRegister)
+          window.location.reload(false);
       }
       else{
         alert("As senhas não conferem!");
