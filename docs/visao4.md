@@ -9,7 +9,6 @@
 | 16/02/2022 |  3.0   | Atualização e Encremento do Documento de Visão do Produto e Projeto | [Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR)|
 | 07/04/2022 |  4.0   | Atualização e Encremento do Documento de Visão do Produto e Projeto |[Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR) |
 
-
 ## 1 Visão Geral do Produto
 
 ### 1.1 Declaração do Problema
@@ -29,7 +28,6 @@
 | Que | Permite a criação e o gerenciamento de fichas de personagens de RPG|
 | Ao contrário | do aplitcativo para celular "Ficha Épica" |
 | Nosso Produto | permite a criação de um ficheiro onde seria criado fichas individuais que podem ser atualizadas por qualquer jogador utilizando um link. Além disso, a nossa plataforma irá permitir que os jogadores rolem os dados de acordo com os atributos da ficha |
-
 
 ### 1.3 Objetivos do Produto
 
@@ -88,8 +86,6 @@ O objetivo principal do site Tatsu é permitir a criação de ficheiros que pode
 
 ## 2 Abordagem de Desenvolvimento de Software
 
-
-
 Para a metodologia foi escolhido um modelo com base em princípios ágeis que seja adaptável a nossa realidade para otimizar os processos de desenvolvimento, utilizando elementos do SCRUM, XP e também do RUP.
 Os elementos utilizados com base no SCRUM serão as sprints, organizadas com duração de 2 semanas, com sprints reviews e sprint plannings definidos e alguns papéis como P.O e Scrum Master, além de uma reunião semanal de acompanhamento. 
 Para otimizar o aprendizado e as revisões será utilizado o pair programming do XP, de maneira que a cada sprint o pareamento dos membros sejam permutados de maneira a fazer com que todos interajam entre sí, melhorando o relacionamento dos desenvolvedores no projeto.
@@ -137,7 +133,6 @@ Por ultimo temos o gerenciamento de requisitos que no RUP irá corresponder a ge
 |:-------:|:----:|:--------:|
 |Refinar a Definição do Sistema| Conferir se os requisitos foram atendidos através de testes de software e também a validação constante se esses requisitos ainda fazem sentidos, sendo realizadas ao final de cada Sprint durante a reunião de Sprint Review| Testes de software, reuniões online e planilha do Google Sheets |
 
-
 ### 3.5	Gerenciamento de Requisitos
 |Atividade|Método|Ferramenta|
 |:-------:|:----:|:--------:|
@@ -161,7 +156,6 @@ Por ultimo temos o gerenciamento de requisitos que no RUP irá corresponder a ge
 | Sprint 2| Criação do back-end, Implementação da tela de login, Implementação da tela de home, Implementação da tela de criação de conta, Implementação da tela de ficheiros, Implementação da tela de criação de ficheiros, Implementação da tela de fichas, Implementação da tela de criação de fichas(MVP 1) | 28/03/2022 | 07/04/2022 |
 | Sprint 3| Implementação da tela e mecanica dos dados, Implementação da mecanica de chat, Implementação de visualização de perfil de outros usuários, Implementação de convite para outros usuários criarem fichas em um determinado ficheiro | 07/04/2022 | 21/04/2022 |
 | Sprint 4| Implementação de validação de usuário, Implementação de recuperação de senha, Ajustes finais, Entrega do MVP 2 | 21/04/2022 | 28/04/2022 |
-
 
 ### 4.3 Matriz de Comunicação
 
@@ -193,9 +187,7 @@ Por ultimo temos o gerenciamento de requisitos que no RUP irá corresponder a ge
 * As tecnologias utilizadas são descontinuadas;
 * Algum membro ficar doente;
 * Atraso no cronograma do projeto.
-
 ## 5 Lições Aprendidas
-
 ### 5.1 Unidade 1
 
 Durante essa primeira etapa, podemos aprender mais sobre o Processo Unificado e sua forma de gerenciamento de requisitos, além de aprendermos sobre a configuração e disponibilização do mkdocs no github pages.
