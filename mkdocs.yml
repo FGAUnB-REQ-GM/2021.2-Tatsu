@@ -27,6 +27,7 @@ nav:
   - PBB: "pbb.md"
   - BDD: "bdd.md"
   - USM: "userStoryMap.md"
+  - Casos de uso: "userCases.md"
   
 markdown_extensions:
   - attr_list
