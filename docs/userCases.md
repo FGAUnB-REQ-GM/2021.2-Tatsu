@@ -26,7 +26,7 @@ Caso de Uso referente a um usuário jogador de RPG que deseja acessar suas ficha
 01. Cliente fez login, criou mais de um ficheiro e mais de uma ficha na plataforma.
 ### Fluxo Básico
 
-00. Usuário faz login na plataforma.
+01. Usuário faz login na plataforma.
 00. Sistema exibe uma mensagem de logado com sucesso.
 00. Sistema exibe todos os ficheiros.
 00. Usuário clica no botão de jogar do ficheiro.
