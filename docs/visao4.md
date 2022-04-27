@@ -8,15 +8,16 @@
 | 23/02/2022 |  2.0   | Atualização do Documento de Visão do Produto e Projeto | [Natan Santana](https://github.com/Neitan2001), [Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR) |
 | 16/02/2022 |  3.0   | Atualização e Encremento do Documento de Visão do Produto e Projeto | [Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR)|
 | 07/04/2022 |  4.0   | Atualização e Encremento do Documento de Visão do Produto e Projeto |[Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR) |
+| 26/04/2022 |  5.0   | Atualização do Visão geral do produto |[Gabriel Freitas](https://github.com/gabrielfreitass1)|
 
 ## 1 Visão Geral do Produto
 
 ### 1.1 Declaração do Problema
 
-|   O Problema     | Jogadores de RPG possuem uma dificuldade para organizar as fichas de uma campanha de RPG de mesa, dificultando e atrasando a jogatina. |    
+|   O Problema     | Jogadores de RPG dependem de materiais físicos(lapis,papel,dados multifaceados) e possuem uma dificuldade para organizar as fichas de uma campanha de RPG de mesa, dificultando e atrasando a jogatina. |    
 | :--------: | :----: | 
 | Afeta |  Jogadores de RPG de mesa  | 
-| Cujo Impacto é | Os jogadores acabam utilizando várias plataformas para jogar um jogo, as vezes até dependendo de materiais físicos e isso gera muita desorganização |
+| Cujo Impacto é | Os jogadores acabam utilizando nenhuma ou várias plataformas para jogar um jogo, as vezes até dependendo de materiais físicos e isso gera muita desorganização |
 | Uma Solução Seria | A criação de uma aplicação web que permitiria a criação de ficheiros e fichas de rpg, permitindo que os jogadores as editem e joguem o jogo dentro da plataforma por meio da rolagem de dados automática | 
 
 ### 1.2 Declaração de Posição do Produto
@@ -27,11 +28,11 @@
 | O Tatsu| É uma ferramenta web | 
 | Que | Permite a criação e o gerenciamento de fichas de personagens de RPG|
 | Ao contrário | do aplitcativo para celular "Ficha Épica" |
-| Nosso Produto | permite a criação de um ficheiro onde seria criado fichas individuais que podem ser atualizadas por qualquer jogador utilizando um link. Além disso, a nossa plataforma irá permitir que os jogadores rolem os dados de acordo com os atributos da ficha |
+| Nosso Produto | permite a criação de um ficheiro onde seria criado quantas fichas forem necessárias do sistema Dungeons and Dragons Dados 5ª edição(D&D 5e) que podem ser atualizadas a qualquer momento pelo jogador. Além disso, a nossa plataforma irá permitir que os jogadores rolem os dados multifaceados dentro da plataforma|
 
 ### 1.3 Objetivos do Produto
 
-O objetivo principal do site Tatsu é permitir a criação de ficheiros que podem organizar fichas de personagens de RPG, permitindo que o usuários as editem a qualquer instante. Além disso, o site possui o objetivo secundário de facilitar a jogatina de um RPG de mesa por meio da plataforma ao permitir rolagem automática de dados de acordo com os atributos das fichas e histórico  de rolagem de dados, danos sofridos por cada personagem e experiência obtida durante combates
+O objetivo principal do site Tatsu é permitir a criação de ficheiros que podem organizar fichas de personagens de RPG, permitindo que o usuários as editem a qualquer instante. Além disso, o site possui o objetivo secundário de facilitar a jogatina de um RPG de mesa por meio da plataforma ao permitir rolagem de dados multifaceados virtualmente discartando a necessidade de materiais físicos.
 
 ### 1.4 Escopo do projeto
 
@@ -40,32 +41,30 @@ O objetivo principal do site Tatsu é permitir a criação de ficheiros que pode
 * Criar conta de usuário
 * Confirmar criação da conta de usuário por email
 * Recuperar senha da conta de usuário
-* Editar informações de cadastro do usuário
-* Acessar modo jogo a partir do ficheiro e da ficha
-* Definir turno dos jogadores
-* Definir um temporizador de turno
-* Consultar perfil de outros usuários
-* Adicionar amigos
-* Mandar mensagem em um chat dentro do ficheiro
-* Definir visibilidade de vida no modo jogo
-* Desabilitar temporizador
-* Registrar valor das rolagens de dado no chat do ficheiro
-* Rolar dados
 * Acessar a plataforma pela conta de usuário já existente
+* Editar informações de cadastro do usuário
+* Definir turno dos jogadores
+* Definir uma ordem de jogada dos jogadores
+* Consultar perfil de outros usuários
 * Criar ficheiros
 * Visualizar ficheiros
 * Editar ficheiros
 * Deletar ficheiros
+* Atribuir fichas do meu ficheiro para outro jogador
 * Criar fichas dentro do ficheiro
 * Visualizar fichas
 * Editar fichas dentro do ficheiro
 * Deletar fichas dentro do ficheiro
+* Criação de uma lista de amigos
+* Rolar dados
+* Histórico da rolagem de dados
+* Mandar mensagem em um chat dentro do ficheiro
 
 #### 1.4.2 Requisitos Não-Funcionais
 
 * Poder acessar através de computadores com diferentes tamanhos de tela (responsividade)
 * A plataforma precisa ter modelos de ficha pré prontos
-* A rolagem de dados, os cálculos de danos e experiências devem ser realizados em menos de 5 segundos
+* A rolagem de dados deve ser realizada em menos de 5 segundos
 * O site possuirá um tutorial de utilização
 * As fichas devem ser criadas de acordo com o sistema de jogo de D&D 5e(Dungeons e Dragons Quinta edição)
 * A plataforma deverá conter ao menos 6 tipos de dados
@@ -83,6 +82,8 @@ O objetivo principal do site Tatsu é permitir a criação de ficheiros que pode
 * Visualizar fichas
 * Editar fichas dentro do ficheiro
 * Deletar fichas dentro do ficheiro
+* Rolar dados multifaceados virtualmente
+* Histórico da rolagem de dados
 
 ## 2 Abordagem de Desenvolvimento de Software
 
