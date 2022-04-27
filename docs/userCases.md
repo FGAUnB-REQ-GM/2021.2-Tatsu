@@ -4,6 +4,7 @@
 |    Data    | Versão |                Descrição                |                     Autor                     |
 | :--------: | :----: | :-------------------------------------: | :-------------------------------------------: |
 | 25/04/2022 |  1.0   | Criação do Documento Diagrama de Casos de Uso |[Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR) |
+| 27/04/2022 |  2.0   | Revisão dos fluxos e de outros pontos do documento. |[Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR) |
 
 O diagrama de caso de uso tem como objetivo resumir os detalhes dos usuários do sistema (também conhecidos como atores) e as interações deles com o sistema.
 
@@ -12,96 +13,73 @@ O diagrama de caso de uso tem como objetivo resumir os detalhes dos usuários do
 <br>
 <a href="https://lucid.app/lucidchart/ae4233ad-e531-44be-b961-696152307382/edit?invitationId=inv_8ac4596d-9ca2-4c56-babc-58f933c1278a">Link para o nosso diagrama de casos de uso completo</a>
 
-## Fluxos de Uso
+# Breve Descrição
 
-### Fluxo Principal
-    
-<ol>
-    <li>Usuário faz login na plataforma</li>
-    <li>Sistema exibe uma mensagem de logado com sucesso</li>
-    <li>Sistema exibe todos os ficheiros</li>
-    <li>Usuário clica no botão de jogar do ficheiro</li>
-    <li>Sistema exibe todas as suas fichas</li>
-    <li>Usuário clica no botão de jogar</li>
-    <li>Sistema exibe as informações da ficha</li>    
-</ol>
+Caso de Uso referente a um usuário jogador de RPG que deseja acessar suas fichas de um ficheiro na plataforma Tatsu.
+
+## Atores
+
+01. Usuário (Jogador de RPG).
+
+## Condições Prévias
+
+01. Cliente fez login, criou mais de um ficheiro e mais de uma ficha na plataforma.
+### Fluxo Básico
+
+00. Usuário faz login na plataforma.
+00. Sistema exibe uma mensagem de logado com sucesso.
+00. Sistema exibe todos os ficheiros.
+00. Usuário clica no botão de jogar do ficheiro.
+00. Sistema exibe todas as suas fichas.
+00. Usuário clica no botão de jogar.
+00. Sistema exibe as informações da ficha.
 
 ### Fluxos Alternativos
- <ol>
 
- <li>Usúario Novo</li>
- O usuário por ser a primeira vez na plataforma necessita criar um cadastro antes de acessar o site.
-    <ol>
-        <li>Usuário clica em "Não possui uma conta?"</li>
-        <li>Sistema exibi a tela de cadastro</li>
-        <li>Usuário preenche as informações</li>
-        <li>Sistema envia e-mail de confirmação</li>
-        <li>Usuário valida e-mail</li>
-        <li>Sistema valida informações</li>
-        <li>Sistema exibe tela de ficheiros</li>
-    </ol>
+ A1. Usúario Novo.
 
-<li>Erro ao logar</li>
- O usuário informa login ou senha errados na tela de login.
-    <ol>
-        <li>Usuário preenche dados de acesso</li>
-        <li>Sistema exibe mensagem de erro</li>
-        <li>Usuário pode tentar novamente ou redefini senha</li>
-    </ol>
+No passo 1 o usuário novo pode criar uma nova conta, o sistema exibe uma mensagem de usuário criado com sucesso e o caso de uso termina.
 
-<li>Criar ficheiros</li>
-    Aqui o usuário depois de exibir os seus ficheiros ele cria um ficheiro.
-    <ol>
-        <li>Usuário clica no botão de "+"</li>
-        <li>Sistema exibe tela de criação de fichiero</li>
-        <li>Usuário informa o nome do ficheiro</li>
-        <li>Sistema exibe tela de ficheiros</li>
-    </ol>
+A2. Erro ao logar.
 
-<li>Deletar ficheiros</li>
-    Aqui o usuário depois de exibir os seus ficheiros ele deleta um ficheiro.
-    <ol>
-        <li>Usuário clica no botão de lixeira</li>
-        <li>Sistema exibe tela confirmação</li>
-        <li>Usuário confirma a operação</li>
-        <li>Sistema exibe que o ficheiro foi deletado</li>
-    </ol>
+No passo 1 do fluxo principal, se o sistema determinar que a senha não é válida, o sistema exibe uma mensagem de erro e o caso de uso termina.
 
- <li>Editar ficheiros</li>
-    Aqui o usuário depois de exibir os seus ficheiros ele edita um ficheiro.
-    <ol>
-        <li>Usuário clica no botão de lápis</li>
-        <li>Sistema exibe tela modificação de fichiero</li>
-        <li>Usuário informa o nome do ficheiro</li>
-        <li>Sistema exibe tela de ficheiros</li>
-    </ol>  
+A3. Criar ficheiros.
 
-<li>Criar ficha</li>
-    Aqui o usuário depois de exibir as suas fichas ele cria uma ficha.
-    <ol>
-        <li>Usuário clica no botão de "+"</li>
-        <li>Sistema exibe tela de criação de ficha</li>
-        <li>Usuário preenche informações</li>
-        <li>Sistema exibe tela de fichas</li>
-    </ol>
+No passo 3 do fluxo principal, O usuário pode criar um ficheiro, o sistema exibe uma mensagem de ficheiro criado com sucesso e o caso de uso termina.   
 
-<li>Deletar ficha</li>
-    Aqui o usuário depois de exibir os suas fichas ele deleta uma ficha.
-    <ol>
-        <li>Usuário clica no botão de lixeira</li>
-        <li>Sistema exibe tela confirmação</li>
-        <li>Usuário confirma a operação</li>
-        <li>Sistema exibe que a ficha foi deletada</li>
-    </ol>
+A4. Deletar ficheiros.
+
+No passo 3 do fluxo principal, O usuário pode deletar um ficheiro, o sistema exibe uma mensagem de ficheiro criado com sucesso e o caso de uso termina.  
+
+ A5. Editar ficheiros.
+
+No passo 3 do fluxo principal, O usuário pode editar um ficheiro, o sistema exibe uma mensagem de ficheiro editado com sucesso e o caso de uso termina.      
+
+A6. Criar ficha.
+
+No passo 5 do fluxo principal, O usuário pode criar uma nova ficha, o sistema exibe uma mensagem de ficheiro editado com sucesso e o caso de uso termina.
     
- <li>Editar ficha</li>
-    Aqui o usuário depois de exibir as suas fichas ele altera as informações da ficha.
-    <ol>
-        <li>Usuário clica no botão de lápis</li>
-        <li>Sistema exibe tela modificação de fichas</li>
-        <li>Usuário altera as informações</li>
-        <li>Usuário salva a operção</li>
-        <li>Sistema exibe tela de fichas</li>
-    </ol>       
+A7. Deletar ficha.
+
+No passo 5 do fluxo principal, após o sistema apresentar todas as fichas o usuário pode deletar uma ficha, o sistema exibe uma mensagem de ficha deletada com sucesso e o caso de uso termina.
     
-</ol>
+A8. Editar ficha.
+
+No passo 5 do fluxo principal, após o sistema apresentar todas as fichas o usuário pode clicar e editar uma ficha, o sistema exibe uma mensagem de ficha editada com sucesso e o caso de uso termina.
+
+A9. Editar perfil.
+
+Nos passos 3 a 7, O usuário pode editar o perfil. o sistema exibe uma mensagem de usuário editado com sucesso e o caso de uso termina
+
+A10. Sair.
+
+O cliente pode encerrar o sistema a qualquer momento. O caso de uso termina.           
+    
+## Pós-Condições
+
+Não se aplica
+
+## Ponto de Extensão
+
+Rolar os dados e jogar RPG.
