@@ -16,9 +16,8 @@ extra_css:
 
 nav:
   - Home: "index.md"
-  - Visão: "visao4.md"
+  - Visão do Produto: "visao4.md"
   - Apresentação do Projeto: "apresentacao.md"
-  - Requisitos Iniciais: "requisitos_iniciais.md"
   - Kanban: "kanban.md"
   - Canvas MVP: "canvasMVP.md"
   - PBB: "pbb.md"

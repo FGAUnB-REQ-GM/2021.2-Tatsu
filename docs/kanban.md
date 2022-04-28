@@ -3,8 +3,8 @@
 ## Histórico de Versão
 |    Data    | Versão | Autor |
 | :--------: | :----: | :-----:|
-| 21/02/2022| 1.0 |Integrantes do grupo Tatsu|
-| 03/04/2002| 2.0 |Integrantes do grupo Tatsu|
+| 21/02/2022| 1.0 |[Natan Santana](https://github.com/Neitan2001), [Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR) ||
+| 03/04/2002| 2.0 |[Leonardo Takehana](https://github.com/ltakehana), [João Paulo Lima](https://github.com/jpaulohe4rt), [Gabriel Freitas](https://github.com/gabrielfreitass1), [Luíz Gustavo](https://github.com/LuizGustavoFR) ||
 
 ### Versão 1
 <img src="../Assets/Images/kanban.png" alt="Kanban">

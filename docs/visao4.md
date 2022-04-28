@@ -117,6 +117,7 @@ Por ultimo temos o gerenciamento de requisitos que no RUP irá corresponder a ge
 |:-------:|:----:|:--------:|
 | Analizar o Problema| Brainstorming | Plataforma "Miro"|
 | Entender as Necesidades dos Stakeholders | Brainstorming | Plataforma "Miro"|
+| Levantar requisitos
 
 ### 3.2	Análise de Requisitos
 |Atividade|Método|Ferramenta|
@@ -155,7 +156,7 @@ Por ultimo temos o gerenciamento de requisitos que no RUP irá corresponder a ge
 |:-------:|:----:|:--------:| :--------:|
 | Sprint 1| Modelagem do banco de dados, Prototipação do projeto| 14/03/2022 | 28/03/2022|
 | Sprint 2| Criação do back-end, Implementação da tela de login, Implementação da tela de home, Implementação da tela de criação de conta, Implementação da tela de ficheiros, Implementação da tela de criação de ficheiros, Implementação da tela de fichas, Implementação da tela de criação de fichas(MVP 1) | 28/03/2022 | 07/04/2022 |
-| Sprint 3| Implementação da tela e mecanica dos dados, Implementação da mecanica de chat, Implementação de visualização de perfil de outros usuários, Implementação de convite para outros usuários criarem fichas em um determinado ficheiro | 07/04/2022 | 21/04/2022 |
+| Sprint 3| Implementação da tela e mecanica dos dados| 07/04/2022 | 21/04/2022 |
 | Sprint 4| Implementação de validação de usuário, Implementação de recuperação de senha, Ajustes finais, Entrega do MVP 2 | 21/04/2022 | 28/04/2022 |
 
 ### 4.3 Matriz de Comunicação
@@ -205,7 +206,14 @@ Nessa terceira etapa aprendemos sobre a Organização dos Requisitos Agéis e co
 
 Essa etapa foi a mais trabalhosa para o grupo pois foi necessário refatorar vários trabalhos realizados(Backlog, Documentação do projeto, Sprint planing, Kanban, MVP 1) tambem foi realizado a criação do User Story Mapping, critérios de aceitação das histórias de usuários criadas e a entrega do nosso MVP 1.
 
+### 5.4 Unidade 5
+
+Nesta última etapa da disciplina foi realizado o Diagrama de casos de uso e seus fluxos descritivos.Também atualizamos práticamente toda nossa documentação para ficar condicente com o nosso produto final.Foi implementado nossas últimas histórias de usuário do MVP, porem como já haviamos discutido deixamos futuros requisitos já levantados que podem ser realizados apos o término da disciplina.
+
 ## 6 Referências Bibliográficas
 
 > [Ficha Épica](https://ficha.epicorpg.com.br/)
+<br>
 > [RUP Homepage](https://sceweb.uhcl.edu/helm/RationalUnifiedProcess/)
+<br>
+> Material de aula do professor George Marsicano disponibilizado durante o segundo semestre de 2022 letivo da Universidade de Brásilia campus Gama.
