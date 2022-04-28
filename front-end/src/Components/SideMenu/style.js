@@ -42,3 +42,35 @@ export const DropDownItem =  styled.li`
     }
     border-radius:10px;
 `;
+
+export const ModalBackgroundBlock = styled.div`
+    position:absolute;
+    display:flex;
+    width:100vw;
+    height:100vh;
+    top:0px;
+    left:0px;
+    align-itens:center;
+    background-color:rgba(0,0,0,0.85);
+    z-index:10;
+`;
+export const ModalContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+    width:30vw;
+    height:70vh;
+    margin:auto;
+    border-radius:15px;
+    background-color: #f2b10c;
+    padding:1rem;
+`;
+
+export const ModalClose = styled.h2`
+    color:white;
+    margin-left:auto;
+    margin:right:0;
+    cursor:pointer;
+`
+export const ModalTitle = styled.h2`
+    color:white;
+`

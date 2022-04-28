@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { VscAccount } from "react-icons/vsc";
 import MainButton from "../../Components/MainButton";
 import SideMenu from "../../Components/SideMenu";
-import { FilesBox, FilesBody, Box, StyledDiv } from "./styles";
+import { FilesBox, FilesBody, Box, StyledDiv, GameStatsColumn, GameStatsBox, GameChatBox, GameStatsButton, GameChatContainer, GameChatInputDiv, GameChatInput, GameChatButton, ModalBackgroundBlock, ModalContainer, GameDiceButton, GameDiceInput, GameDiceTitle, GameDiceCloseButton } from "./styles";
 import FileInfo from "../../Components/FileInfo";
 import DeleteModal from "../../Components/DeleteModal";
 import readGame from "../../Services/readGame";
 import { useParams } from 'react-router-dom'
 import deleteCharacter from "../../Services/deleteCharacter";
+import { MdCasino, MdClose, MdGroupAdd, MdSend } from "react-icons/md";
 
 
 const Game = ()=>{
@@ -15,9 +16,11 @@ const Game = ()=>{
   const [charactersList,setCharactersList] = useState([]);
   const [token,setToken] = useState("");
   const [deleteModalVisible,setDeleteModalVisible]=useState(false);
+  const [diceModalVisible,setDiceModalVisible]=useState(false);
   const [deleteCharacterId,setDeleteCharacterId]=useState(-1);
   const [game,setGame]=useState({});
   const {gameId} = useParams();
+  const [diceValue,setDiceValue]=useState(1);
 
 
 
@@ -50,6 +53,9 @@ const Game = ()=>{
     setGameInfo();
   },[token])
 
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
   const setGameInfo=async()=>{
     let game= await readGame(token,gameId);
@@ -59,9 +65,31 @@ const Game = ()=>{
     }
   }
 
+  const setDice=async (value)=>{
+    let dice=1;
+    for(let i=0;i<50;i++){
+      dice=( Math.floor(Math.random() * (value-1)+1));
+      setDiceValue(dice);
+      await sleep(10);
+    }
+
+  }
+
   return (
     <>
       {(deleteModalVisible)&&(<DeleteModal onConfirm={handleDeleteCharacter} onClose={closeDeleteModal} title={"a ficha"}></DeleteModal>)}
+      {(diceModalVisible)&&(<ModalBackgroundBlock>
+        <ModalContainer>
+          <GameDiceCloseButton onClick={()=>{setDiceModalVisible(false)}}><MdClose></MdClose></GameDiceCloseButton>
+          <GameDiceInput>
+            <GameDiceButton onClick={()=>{setDice(6)}}>D6</GameDiceButton>
+            <GameDiceButton onClick={()=>{setDice(10)}}>D10</GameDiceButton>
+            <GameDiceButton onClick={()=>{setDice(12)}}>D12</GameDiceButton>
+            <GameDiceButton onClick={()=>{setDice(20)}}>D20</GameDiceButton>
+          </GameDiceInput>
+          <GameDiceTitle>{diceValue}</GameDiceTitle>
+        </ModalContainer>
+      </ModalBackgroundBlock>)}
       <FilesBody>
           <SideMenu></SideMenu>
           <FilesBox>
@@ -78,6 +106,25 @@ const Game = ()=>{
                 )))}
               </div>
             </Box>
+            <GameStatsColumn>
+              <GameChatBox>
+                <GameChatContainer readOnly={true}>
+
+                </GameChatContainer>
+                <GameChatInputDiv>
+                  <GameChatInput></GameChatInput>
+                  <GameChatButton><MdSend></MdSend></GameChatButton>
+                </GameChatInputDiv>
+              </GameChatBox>
+              <GameStatsBox>
+                <GameStatsButton>
+                  <MdGroupAdd></MdGroupAdd>
+                </GameStatsButton>
+                <GameStatsButton onClick={()=>{setDiceModalVisible(true)}}>
+                  <MdCasino></MdCasino>
+                </GameStatsButton>
+              </GameStatsBox>
+            </GameStatsColumn>
             </FilesBox>
           <StyledDiv onClick={()=>{window.location.href="/createCharacter/"+gameId}}>
             <MainButton title={"+"} />

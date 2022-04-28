@@ -1,4 +1,5 @@
 from hashlib import new
+from operator import mod
 from flask import Flask, request, jsonify, redirect, url_for
 import jwt
 from utils import *
@@ -116,6 +117,23 @@ def readUser():
         return jsonify({"error": "Não foi possível atualizar um usuário"}),400
     except Exception:
         return jsonify({"error": "Não foi possível atualizar um usuário"}),400
+
+@app.route("/user/userId", methods=["GET"])
+def readOtherUser(userId):
+    try:
+        token = request.headers["authorization"]
+        if(token):
+            user = models.User.query.filter(models.User.Id==userId).one()
+            results={
+                "id":user.Id,
+                "username":user.userName,
+                "email":user.email,
+                "biography":user.biography
+            }
+            return jsonify(results), 200
+        return jsonify({"error": "Não foi possível obter um usuário"}),400
+    except Exception:
+        return jsonify({"error": "Não foi possível obter um usuário"}),400
 
 @app.route("/game", methods=["POST"])
 def createGame():
@@ -869,6 +887,248 @@ def deleteEquipment(equipmentId):
         return jsonify({"error": "Não foi possível atualizar o ficheiro"}),400
     except Exception:
         return jsonify({"error": "Não foi possível atualizar o ficheiro"}),400
+
+@app.route("/friend/<friendId>", methods=["POST"])
+def createFriend(friendId):
+    try:
+        token = request.headers["authorization"]
+        if(token):
+            token= token.replace("Bearer ","")
+            userId = decode_auth_token(token)
+
+            newFriend = models.Friend(userId,friendId)
+            db.session.add(newFriend)
+            db.session.commit()
+            return jsonify({"message": f"Solicitação de amizade enviada."}), 200
+        return jsonify({"error": "Não foi possível enviar a solicitação"}),400
+    except Exception:
+        return jsonify({"error": "Não foi possível enviar a solicitação"}),400
+
+@app.route("/friend/<friendId>", methods=["PUT"])
+def updateFriend(friendId):
+    try:
+        token = request.headers["authorization"]
+        if(token):
+            token= token.replace("Bearer ","")
+            userId = decode_auth_token(token)
+
+            friend = models.Friend.query.filter(models.Friend.Id==friendId).one()
+            if(userId==friend.user2):
+                friend.accepted=True
+                db.session.add(friend)
+                db.session.commit()
+                return jsonify({"message": f"Solicitação de amizade aceita."}), 200
+            return jsonify({"error": "Não foi possível aceitar a solicitação"}),400
+        return jsonify({"error": "Não foi possível aceitar a solicitação"}),400
+    except Exception:
+        return jsonify({"error": "Não foi possível aceitar a solicitação"}),400
+
+
+@app.route("/friend/<friendId>", methods=["DELETE"])
+def deleteFriend(friendId):
+    try:
+        token = request.headers["authorization"]
+        if(token):
+            token= token.replace("Bearer ","")
+            userId = decode_auth_token(token)
+
+            friend = models.Friend.query.filter(models.Friend.Id==friendId).one()
+            if(userId==friend.user2):
+                friend.accepted=True
+                db.session.delete(friend)
+                db.session.commit()
+                return jsonify({"message": f"Solicitação de amizade recusada."}), 200
+            return jsonify({"error": "Não foi possível recusar a solicitação"}),400
+        return jsonify({"error": "Não foi possível recusar a solicitação"}),400
+    except Exception:
+        return jsonify({"error": "Não foi possível recusar a solicitação"}),400
+
+
+@app.route("/friends", methods=["GET"])
+def readFriends():
+    try:
+        token = request.headers["authorization"]
+        if(token):
+            token= token.replace("Bearer ","")
+            userId = decode_auth_token(token)
+
+            friendSolicitation=[]
+            friendList=[]
+            friends = models.Friend.query.filter(db.or_(models.Friend.user1==userId,models.Friend.user2==userId)).all()
+            for friend in friends:
+                if(friend.accepted):
+                    if(userId==friend.user1):
+                        user = models.User.query.filter(models.User.Id==friend.user2).one()
+                    else:
+                        user = models.User.query.filter(models.User.Id==friend.user1).one()
+                    friendList.append({
+                        "id":user.Id,
+                        "username":user.userName,
+                        "email":user.email,
+                        "biography":user.biography
+                    })
+                elif(userId==friend.user2):
+                    user = models.User.query.filter(models.User.Id==friend.user1).one()
+                    friendSolicitation.append({
+                        "id":user.Id,
+                        "username":user.userName,
+                        "email":user.email,
+                        "biography":user.biography
+                    })
+            results={
+                "friends":friendList,
+                "solicitations":friend
+            }
+
+            return jsonify(results), 200
+        return jsonify({"error": "Não foi possível ler a lista de amigos"}),400
+    except Exception:
+        return jsonify({"error": "Não foi possível ler a lista de amigos"}),400
+
+@app.route("/players/<gameId>/<friendId>", methods=["POST"])
+def createPlayer(gameId,friendId):
+    try:
+        token = request.headers["authorization"]
+        if(token):
+            token= token.replace("Bearer ","")
+            userId = decode_auth_token(token)
+
+            game = models.Game.query.filter(models.Game.Id==gameId).one()
+            if(game.userId!=userId):
+                return jsonify({"error": "O usuário não tem permissão para criar esta solicitação"}),400
+            newPlayer = models.GamePlayers(friendId,gameId)
+            db.session.add(newPlayer)
+            db.session.commit()
+            return jsonify({"message": f"Solicitação de amizade enviada."}), 200
+        return jsonify({"error": "Não foi possível enviar a solicitação"}),400
+    except Exception:
+        return jsonify({"error": "Não foi possível enviar a solicitação"}),400
+
+@app.route("/players/<playerId>", methods=["PUT"])
+def updatePlayer(playerId):
+    try:
+        token = request.headers["authorization"]
+        if(token):
+            token= token.replace("Bearer ","")
+            userId = decode_auth_token(token)
+            
+            player = models.GamePlayers.query.filter(models.GamePlayers.Id==playerId).one()
+
+            if(player.userId!=userId):
+                return jsonify({"error": "O usuário não tem permissão para criar esta solicitação"}),400
+
+            player.accepted=True
+            db.session.add(player)
+            db.session.commit()
+            return jsonify({"message": f"Solicitação aceita."}), 200
+        return jsonify({"error": "Não foi possível aceitar a solicitação"}),400
+    except Exception:
+        return jsonify({"error": "Não foi possível aceitar a solicitação"}),400
+
+
+@app.route("/players/<playerId>", methods=["DELETE"])
+def deletePlayer(playerId):
+    try:
+        token = request.headers["authorization"]
+        if(token):
+            token= token.replace("Bearer ","")
+            userId = decode_auth_token(token)
+
+            
+            player = models.GamePlayers.query.filter(models.GamePlayers.Id==playerId).one()
+
+            if(player.userId!=userId):
+                return jsonify({"error": "O usuário não tem permissão para criar esta solicitação"}),400
+
+            player.accepted=True
+            db.session.delete(player)
+            db.session.commit()
+            return jsonify({"message": f"Solicitação recusada."}), 200
+        return jsonify({"error": "Não foi possível recusar a solicitação"}),400
+    except Exception:
+        return jsonify({"error": "Não foi possível recusar a solicitação"}),400
+
+
+@app.route("/players/<gameId>", methods=["GET"])
+def readPlayer(gameId):
+    try:
+        token = request.headers["authorization"]
+        if(token):
+            token= token.replace("Bearer ","")
+            userId = decode_auth_token(token)
+            results=[]
+            game = models.Game.query.filter(models.Game.Id==gameId).one()
+            user = models.User.query.filter(models.User.Id==game.userId).one()
+            results.append({
+                "id":user.Id,
+                "username":user.userName,
+                "email":user.email,
+                "biography":user.biography
+            })
+            
+            players = models.GamePlayers.query.filter(models.GamePlayers.gameId==gameId).all()
+            for player in players:
+                if(player.accepted):
+                    user = models.User.query.filter(models.User.Id==player.userId).one()
+                    results.append({
+                        "id":user.Id,
+                        "username":user.userName,
+                        "email":user.email,
+                        "biography":user.biography
+                    })
+
+            return jsonify(results), 200
+        return jsonify({"error": "Não foi possível ler a lista de amigos"}),400
+    except Exception:
+        return jsonify({"error": "Não foi possível ler a lista de amigos"}),400
+
+@app.route("/message/<gameId>", methods=["POST"])
+def createMessage(gameId):
+    try:
+        token = request.headers["authorization"]
+        if(token):
+            data = request.get_json()
+            token= token.replace("Bearer ","")
+            userId = decode_auth_token(token)
+
+            game = models.Game.query.filter(db.and_(models.Game.userId==userId,models.Game.gameId==gameId)).one()
+            player = models.GamePlayers.query.filter(db.and_(models.GamePlayers.userId==userId,models.GamePlayers.gameId==gameId)).one()
+            if(not(game or player)):
+                return jsonify({"error": "Não foi possível ler a lista de mensagens"}),400
+            newMessage = models.Message(userId,gameId,data["content"])
+            db.session.add(newMessage)
+            db.session.commit()
+            return jsonify({"message": f"Solicitação de amizade enviada."}), 200
+        return jsonify({"error": "Não foi possível enviar a solicitação"}),400
+    except Exception:
+        return jsonify({"error": "Não foi possível enviar a solicitação"}),400
+
+
+@app.route("/messages/<gameId>", methods=["GET"])
+def readMessages(gameId):
+    try:
+        token = request.headers["authorization"]
+        if(token):
+            token= token.replace("Bearer ","")
+            userId = decode_auth_token(token)
+            results=[]
+            game = models.Game.query.filter(db.and_(models.Game.userId==userId,models.Game.gameId==gameId)).one()
+            player = models.GamePlayers.query.filter(db.and_(models.GamePlayers.userId==userId,models.GamePlayers.gameId==gameId)).one()
+            if(not(game or player)):
+                return jsonify({"error": "Não foi possível ler a lista de mensagens"}),400
+            messages=models.Message.query.filter(models.Message.gameId==gameId).all()
+            for message in messages:
+                user = models.User.query.filter(models.User.Id==player.userId).one()
+                results.append({
+                    "username":user.userName,
+                    "message":message.content
+                })
+
+            return jsonify(results), 200
+        return jsonify({"error": "Não foi possível ler a lista de amigos"}),400
+    except Exception:
+        return jsonify({"error": "Não foi possível ler a lista de amigos"}),400
+
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 5050)))

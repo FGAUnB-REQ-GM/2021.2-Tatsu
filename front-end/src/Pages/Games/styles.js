@@ -101,7 +101,7 @@ export const StyledDiv = styled.div`
   font-size: 24px;
   line-height: 20px;
   text-align: center;
-  align-itens: center;
+  align-items: center;
   display: flex;
   justify-content: space-between;
   button {

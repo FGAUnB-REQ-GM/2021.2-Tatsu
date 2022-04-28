@@ -200,6 +200,7 @@ class Game(db.Model):
     name = db.Column(db.String,nullable=False)
     userId = db.Column(db.Integer)
     gameMode = db.Column(db.String,nullable=False)
+    turn =  db.Column(db.Integer)
     timer = db.Column(db.Time)
     createdAt = db.Column(db.DateTime)
     updatedAt = db.Column(db.DateTime)
@@ -209,6 +210,7 @@ class Game(db.Model):
         self.userId = userId
         self.gameMode = gameMode
         self.timer = timer
+        self.turn = -1
         self.createdAt = datetime.datetime.utcnow()
         self.updatedAt = datetime.datetime.utcnow()
         
@@ -219,18 +221,32 @@ class GamePlayers(db.Model):
     Id = db.Column(db.Integer,nullable=False,primary_key=True)
     userId = db.Column(db.Integer)
     gameId = db.Column(db.Integer)
+    accepted = db.Column(db.Boolean)
     createdAt = db.Column(db.DateTime)
     updatedAt = db.Column(db.DateTime)
     
     def __init__ (self,userId,gameId):
         self.userId = userId
         self.gameId= gameId
+        self.accepted=False
         self.createdAt = datetime.datetime.utcnow()
         self.updatedAt = datetime.datetime.utcnow()
 
-
-
-
+class Friend(db.Model):
+    __tablename__='friends'
+    Id = db.Column(db.Integer,nullable=False,primary_key=True)
+    user1 = db.Column(db.Integer)
+    user2 = db.Column(db.Integer)
+    accepted = db.Column(db.Boolean)
+    createdAt = db.Column(db.DateTime)
+    updatedAt = db.Column(db.DateTime)
+    
+    def __init__ (self,user1,user2):
+        self.user1 = user1
+        self.user2= user2
+        self.accepted=False
+        self.createdAt = datetime.datetime.utcnow()
+        self.updatedAt = datetime.datetime.utcnow()
 
 class Message(db.Model):
     __tablename__= 'message'
