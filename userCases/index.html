@@ -1,0 +1,1427 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../Assets/Images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>Casos de Uso - Tatsu</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../Assets/Stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#casos-de-uso" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tatsu" class="md-header__button md-logo" aria-label="Tatsu" data-md-component="logo">
+      
+  <img src="../Assets/Images/LogoHorizontal.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tatsu
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Casos de Uso
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FGAUnB-REQ-GM/2021.2-Tatsu" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../visao4/" class="md-tabs__link">
+      Visão do Produto
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../apresentacao/" class="md-tabs__link">
+      Apresentação do Projeto
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../kanban/" class="md-tabs__link">
+      Kanban
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../canvasMVP/" class="md-tabs__link">
+      Canvas MVP
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../pbb/" class="md-tabs__link">
+      PBB
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../bdd/" class="md-tabs__link">
+      BDD
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../userStoryMap/" class="md-tabs__link">
+      USM
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Casos de Uso
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tatsu" class="md-nav__button md-logo" aria-label="Tatsu" data-md-component="logo">
+      
+  <img src="../Assets/Images/LogoHorizontal.svg" alt="logo">
+
+    </a>
+    Tatsu
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FGAUnB-REQ-GM/2021.2-Tatsu" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visao4/" class="md-nav__link">
+        Visão do Produto
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apresentacao/" class="md-nav__link">
+        Apresentação do Projeto
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kanban/" class="md-nav__link">
+        Kanban
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../canvasMVP/" class="md-nav__link">
+        Canvas MVP
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pbb/" class="md-nav__link">
+        PBB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bdd/" class="md-nav__link">
+        BDD
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userStoryMap/" class="md-nav__link">
+        USM
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Casos de Uso
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Casos de Uso
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    Histórico de Versão
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breve-descricao" class="md-nav__link">
+    Breve descrição
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#especificacao-dos-casos-de-uso" class="md-nav__link">
+    Especificação dos casos de uso
+  </a>
+  
+    <nav class="md-nav" aria-label="Especificação dos casos de uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criar-conta" class="md-nav__link">
+    Criar conta
+  </a>
+  
+    <nav class="md-nav" aria-label="Criar conta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-de-excecao" class="md-nav__link">
+    Fluxo de exceção
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxo de exceção">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dados-de-cadastro-invalidos" class="md-nav__link">
+    &nbsp; Dados de cadastro inválidos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fazer-login" class="md-nav__link">
+    Fazer Login
+  </a>
+  
+    <nav class="md-nav" aria-label="Fazer Login">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores_1" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal_1" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-de-excecao_1" class="md-nav__link">
+    Fluxo de exceção
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxo de exceção">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dados-de-acesso-invalidos" class="md-nav__link">
+    &nbsp; Dados de acesso inválidos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-de-extensao" class="md-nav__link">
+    Fluxo de extensão
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxo de extensão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redefinir-senha" class="md-nav__link">
+    &nbsp; Redefinir senha
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manter-perfil-proprio" class="md-nav__link">
+    Manter perfil próprio
+  </a>
+  
+    <nav class="md-nav" aria-label="Manter perfil próprio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores_2" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal_2" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-alternativo" class="md-nav__link">
+    Fluxo alternativo
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxo alternativo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modificar-dados" class="md-nav__link">
+    &nbsp; Modificar dados
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manter-ficheiros" class="md-nav__link">
+    Manter ficheiros
+  </a>
+  
+    <nav class="md-nav" aria-label="Manter ficheiros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores_3" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal_3" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxos-alternativos" class="md-nav__link">
+    Fluxos alternativos
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxos alternativos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adicionar-ficheiro" class="md-nav__link">
+    &nbsp; Adicionar ficheiro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificar-ficheiro" class="md-nav__link">
+    &nbsp; Modificar ficheiro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excluir-ficheiro" class="md-nav__link">
+    &nbsp; Excluir ficheiro
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manter-fichas" class="md-nav__link">
+    Manter fichas
+  </a>
+  
+    <nav class="md-nav" aria-label="Manter fichas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores_4" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal_4" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxos-alternativos_1" class="md-nav__link">
+    Fluxos alternativos
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxos alternativos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criar-ficha" class="md-nav__link">
+    &nbsp; Criar ficha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editar-ficha" class="md-nav__link">
+    &nbsp; Editar ficha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excluir-ficha" class="md-nav__link">
+    &nbsp; Excluir ficha
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rolar-dados" class="md-nav__link">
+    Rolar dados
+  </a>
+  
+    <nav class="md-nav" aria-label="Rolar dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores_5" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal_5" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    Histórico de Versão
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breve-descricao" class="md-nav__link">
+    Breve descrição
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#especificacao-dos-casos-de-uso" class="md-nav__link">
+    Especificação dos casos de uso
+  </a>
+  
+    <nav class="md-nav" aria-label="Especificação dos casos de uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criar-conta" class="md-nav__link">
+    Criar conta
+  </a>
+  
+    <nav class="md-nav" aria-label="Criar conta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-de-excecao" class="md-nav__link">
+    Fluxo de exceção
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxo de exceção">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dados-de-cadastro-invalidos" class="md-nav__link">
+    &nbsp; Dados de cadastro inválidos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fazer-login" class="md-nav__link">
+    Fazer Login
+  </a>
+  
+    <nav class="md-nav" aria-label="Fazer Login">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores_1" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal_1" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-de-excecao_1" class="md-nav__link">
+    Fluxo de exceção
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxo de exceção">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dados-de-acesso-invalidos" class="md-nav__link">
+    &nbsp; Dados de acesso inválidos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-de-extensao" class="md-nav__link">
+    Fluxo de extensão
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxo de extensão">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redefinir-senha" class="md-nav__link">
+    &nbsp; Redefinir senha
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manter-perfil-proprio" class="md-nav__link">
+    Manter perfil próprio
+  </a>
+  
+    <nav class="md-nav" aria-label="Manter perfil próprio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores_2" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal_2" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-alternativo" class="md-nav__link">
+    Fluxo alternativo
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxo alternativo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modificar-dados" class="md-nav__link">
+    &nbsp; Modificar dados
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manter-ficheiros" class="md-nav__link">
+    Manter ficheiros
+  </a>
+  
+    <nav class="md-nav" aria-label="Manter ficheiros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores_3" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal_3" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxos-alternativos" class="md-nav__link">
+    Fluxos alternativos
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxos alternativos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adicionar-ficheiro" class="md-nav__link">
+    &nbsp; Adicionar ficheiro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificar-ficheiro" class="md-nav__link">
+    &nbsp; Modificar ficheiro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excluir-ficheiro" class="md-nav__link">
+    &nbsp; Excluir ficheiro
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manter-fichas" class="md-nav__link">
+    Manter fichas
+  </a>
+  
+    <nav class="md-nav" aria-label="Manter fichas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores_4" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal_4" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxos-alternativos_1" class="md-nav__link">
+    Fluxos alternativos
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxos alternativos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criar-ficha" class="md-nav__link">
+    &nbsp; Criar ficha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editar-ficha" class="md-nav__link">
+    &nbsp; Editar ficha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excluir-ficha" class="md-nav__link">
+    &nbsp; Excluir ficha
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rolar-dados" class="md-nav__link">
+    Rolar dados
+  </a>
+  
+    <nav class="md-nav" aria-label="Rolar dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atores_5" class="md-nav__link">
+    Atores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-principal_5" class="md-nav__link">
+    Fluxo principal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="casos-de-uso">Casos de Uso</h1>
+<h2 id="historico-de-versao">Histórico de Versão</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Data</th>
+<th align="center">Versão</th>
+<th align="center">Descrição</th>
+<th align="center">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">25/04/2022</td>
+<td align="center">1.0</td>
+<td align="center">Criação do Documento Diagrama de Casos de Uso</td>
+<td align="center"><a href="https://github.com/ltakehana">Leonardo Takehana</a>, <a href="https://github.com/jpaulohe4rt">João Paulo Lima</a>, <a href="https://github.com/gabrielfreitass1">Gabriel Freitas</a>, <a href="https://github.com/LuizGustavoFR">Luíz Gustavo</a></td>
+</tr>
+<tr>
+<td align="center">28/04/2022</td>
+<td align="center">2.0</td>
+<td align="center">Ajustes finais do Documento de Casos de Uso</td>
+<td align="center"><a href="https://github.com/ltakehana">Leonardo Takehana</a>, <a href="https://github.com/jpaulohe4rt">João Paulo Lima</a>, <a href="https://github.com/gabrielfreitass1">Gabriel Freitas</a>, <a href="https://github.com/LuizGustavoFR">Luíz Gustavo</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="breve-descricao">Breve descrição</h2>
+<p>O diagrama de caso de uso tem como objetivo resumir os detalhes dos usuários do sistema (também conhecidos como atores) e as interações deles com o sistema.</p>
+<p><img src="../Assets/Images/casosUso.png" alt="UserCases">
+<br>
+<a href="https://lucid.app/lucidchart/ae4233ad-e531-44be-b961-696152307382/edit?invitationId=inv_8ac4596d-9ca2-4c56-babc-58f933c1278a">Link para o nosso diagrama de casos de uso completo</a></p>
+<h2 id="especificacao-dos-casos-de-uso">Especificação dos casos de uso</h2>
+<h3 id="criar-conta">Criar conta</h3>
+<p>Na criação de conta o usuário terá a oportunidade de criar o acesso que possibilitará utilizar o serviço.</p>
+<h4 id="atores">Atores</h4>
+<ol>
+    <li>Usuário novo</li>
+</ol>
+
+<h4 id="fluxo-principal">Fluxo principal</h4>
+<ol>
+    <li>Usuário acessa tela de cadastro.</li>
+    <li>Preenche o formulário de cadastro.</li>
+    <li>Envia formulário</li>
+</ol>
+
+<h4 id="fluxo-de-excecao">Fluxo de exceção</h4>
+<h5 id="dados-de-cadastro-invalidos">&nbsp; Dados de cadastro inválidos</h5>
+<ol>
+    <li>Se o nome de usuário ou email já estiverem cadastrados, ele deve inserir novos dados no formulário de cadastro.</li>
+</ol>
+
+<h3 id="fazer-login">Fazer Login</h3>
+<p>No login de usuário fica possibilitado que o mesmo entre efetivamente nas funcionalidades principais da plataforma.</p>
+<h4 id="atores_1">Atores</h4>
+<ol>
+    <li>Jogador de RPG</li>
+</ol>
+
+<h4 id="fluxo-principal_1">Fluxo principal</h4>
+<ol>
+    <li>Usuário novo entra na tela de login da plataforma.</li>
+    <li>Preenche os campos com seus dados pessoais.</li>
+    <li>Acessa a conta</li>
+</ol>
+
+<h4 id="fluxo-de-excecao_1">Fluxo de exceção</h4>
+<h5 id="dados-de-acesso-invalidos">&nbsp; Dados de acesso inválidos</h5>
+<ol>
+    <li>Se os dados de acesso estiverem errados ele deve os inserir novamente.</li>
+</ol>
+
+<h4 id="fluxo-de-extensao">Fluxo de extensão</h4>
+<h5 id="redefinir-senha">&nbsp; Redefinir senha</h5>
+<ol>
+    <li>Redefinir a senha caso não consiga lembrar da senha.</li>
+</ol>
+
+<h3 id="manter-perfil-proprio">Manter perfil próprio</h3>
+<p>O jogador pode visualizar ou alterar seus dados pessoais.</p>
+<h4 id="atores_2">Atores</h4>
+<ol>
+    <li>Jogador de RPG</li>
+</ol>
+
+<h4 id="fluxo-principal_2">Fluxo principal</h4>
+<ol>
+    <li>Jogador acessa seu perfil de usuário para ver seus dados pessoais.</li>
+</ol>
+
+<h4 id="fluxo-alternativo">Fluxo alternativo</h4>
+<h5 id="modificar-dados">&nbsp; Modificar dados</h5>
+<ol>
+    <li>Usuário modifica seus dados pessoais da conta.</li>
+</ol>
+
+<h3 id="manter-ficheiros">Manter ficheiros</h3>
+<p>Um ficheiro é onde as fichas serão armazenadas.</p>
+<h4 id="atores_3">Atores</h4>
+<ol>
+    <li>Jogador de RPG</li>
+</ol>
+
+<h4 id="fluxo-principal_3">Fluxo principal</h4>
+<ol>
+    <li>Jogador acessa a aba de ficheiros.</li>
+    <li>Visualiza todos os seus ficheiros criados.</li>
+</ol>
+
+<h4 id="fluxos-alternativos">Fluxos alternativos</h4>
+<p>Após a visualização de um ficheiro, é possível seguir qualquer um dos seguintes fluxos.</p>
+<h5 id="adicionar-ficheiro">&nbsp; Adicionar ficheiro</h5>
+<ol>
+    <li>Jogador cria um novo ficheiro.</li>
+</ol>
+
+<h5 id="modificar-ficheiro">&nbsp; Modificar ficheiro</h5>
+<ol>
+    <li>Jogador pode modificar os dados de um ficheiro criado.</li>
+</ol>
+
+<h5 id="excluir-ficheiro">&nbsp; Excluir ficheiro</h5>
+<ol>
+    <li>Jogador pode apagar um ficheiro.</li>
+</ol>
+
+<h3 id="manter-fichas">Manter fichas</h3>
+<p>Uma ficha é onde as informações de um personagem serão mantidas.</p>
+<h4 id="atores_4">Atores</h4>
+<ol>
+    <li>Jogador de RPG</li>
+</ol>
+
+<h4 id="fluxo-principal_4">Fluxo principal</h4>
+<ol>
+    <li>Jogador seleciona um ficheiro.</li>
+    <li>Jogador seleciona uma ficha.</li>
+    <li>Visualiza os dados do personagem.</li>
+</ol>
+
+<h4 id="fluxos-alternativos_1">Fluxos alternativos</h4>
+<p>Após a visualização de todas as fichas, é possível seguir qualquer um dos seguintes fluxos.</p>
+<h5 id="criar-ficha">&nbsp; Criar ficha</h5>
+<ol>
+    <li>Jogador cria uma nova ficha.</li>
+</ol>
+
+<h5 id="editar-ficha">&nbsp; Editar ficha</h5>
+<ol>
+    <li>Jogador pode modificar os dados de uma ficha criada.</li>
+</ol>
+
+<h5 id="excluir-ficha">&nbsp; Excluir ficha</h5>
+<ol>
+    <li>Jogador pode apagar uma ficha.</li>
+</ol>
+
+<h3 id="rolar-dados">Rolar dados</h3>
+<p>A rolagem de dados é fundamental para definir o resultado de teste de atributo de um personagem.</p>
+<h4 id="atores_5">Atores</h4>
+<ol>
+    <li>Jogador de RPG</li>
+</ol>
+
+<h4 id="fluxo-principal_5">Fluxo principal</h4>
+<ol>
+    <li>Jogador seleciona os tipos de dados para rolagem.</li>
+    <li>Jogador rola os dados.</li>
+</ol>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../userStoryMap/" class="md-footer__link md-footer__link--prev" aria-label="Previous: USM" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              USM
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": "navigation.tabs", "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+    
+  </body>
+</html>
