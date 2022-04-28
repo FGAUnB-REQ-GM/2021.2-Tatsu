@@ -21,6 +21,9 @@ const Game = ()=>{
   const [game,setGame]=useState({});
   const {gameId} = useParams();
   const [diceValue,setDiceValue]=useState(1);
+  const [chatMessages,setChatMessages]=useState([]);
+  const [messageInput,setMessageInput]=useState("");
+  const [messageText,setMessageText]=useState("");
 
 
 
@@ -53,6 +56,14 @@ const Game = ()=>{
     setGameInfo();
   },[token])
 
+  useEffect(()=>{
+    let result="";
+    chatMessages.map((chatMessage)=>{
+      result+=chatMessage.name+":"+chatMessage.message+"\n";
+    });
+    setMessageText(result);
+  },[chatMessages])
+
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
@@ -73,6 +84,15 @@ const Game = ()=>{
       await sleep(10);
     }
 
+  }
+
+  const addMessage=()=>{
+    let messagesList=chatMessages;
+    messagesList.push({
+      "message":messageInput,
+      "user":"takehana"
+    });
+    setChatMessages(messagesList);
   }
 
   return (
@@ -107,19 +127,19 @@ const Game = ()=>{
               </div>
             </Box>
             <GameStatsColumn>
-              <GameChatBox>
-                <GameChatContainer readOnly={true}>
+              {/*<GameChatBox>
+                <GameChatContainer value={messageText} readOnly={true}>
 
                 </GameChatContainer>
                 <GameChatInputDiv>
-                  <GameChatInput></GameChatInput>
-                  <GameChatButton><MdSend></MdSend></GameChatButton>
+                  <GameChatInput onChange={(event) => setMessageInput(event.target.value)}></GameChatInput>
+                  <GameChatButton onClick={()=>{addMessage()}}><MdSend></MdSend></GameChatButton>
                 </GameChatInputDiv>
-              </GameChatBox>
+                </GameChatBox>*/}
               <GameStatsBox>
-                <GameStatsButton>
+                {/*<GameStatsButton>
                   <MdGroupAdd></MdGroupAdd>
-                </GameStatsButton>
+              </GameStatsButton>*/}
                 <GameStatsButton onClick={()=>{setDiceModalVisible(true)}}>
                   <MdCasino></MdCasino>
                 </GameStatsButton>

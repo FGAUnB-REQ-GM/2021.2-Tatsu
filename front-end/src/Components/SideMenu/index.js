@@ -40,7 +40,7 @@ const SideMenu = () => {
         {(dropDownVisible)&&(<DropDownMenu onMouseLeave={()=>{setDropDownVisible(false)}}>
           <DropDownItem onClick={handleHome}><MdHome></MdHome>Página ínicial</DropDownItem>
           <DropDownItem onClick={handleEditProfile}><MdEdit></MdEdit>Editar Perfil</DropDownItem>
-          <DropDownItem onClick={()=>{setFriendsModal(true)}}><MdGroupAdd></MdGroupAdd>Meus amigos</DropDownItem>
+          {/*<DropDownItem onClick={()=>{setFriendsModal(true)}}><MdGroupAdd></MdGroupAdd>Meus amigos</DropDownItem>*/}
           <DropDownItem onClick={handleLogout}><MdLogout></MdLogout>Sair</DropDownItem>
         </DropDownMenu>)}
       </StyledButtonLogin>
